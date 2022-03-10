@@ -5,4 +5,5 @@ export const getPosts = async () => {
     return json;
 
     // hello
+    //this is Co
 } 
