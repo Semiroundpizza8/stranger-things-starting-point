@@ -14,3 +14,5 @@ const App = (props) => {
 }
 
 export default hot(App);
+
+//"Hi Qiang!"
