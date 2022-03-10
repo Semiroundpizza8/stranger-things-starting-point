@@ -4,10 +4,6 @@ export const getPosts = async () => {
     const json = await response.json()
     return json;
 
-<<<<<<< HEAD
-    
-=======
     // hello
     //this is Co
->>>>>>> fc0dfaf30b307ec842c6beb86ff82109c51ecaec
 } 
