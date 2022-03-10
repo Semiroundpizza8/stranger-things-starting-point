@@ -4,5 +4,5 @@ export const getPosts = async () => {
     const json = await response.json()
     return json;
 
-    // hello
+    
 } 
