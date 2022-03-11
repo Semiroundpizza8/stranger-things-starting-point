@@ -4,6 +4,21 @@ export const getPosts = async () => {
     const json = await response.json()
     return json;
 
-    // hello
-    //this is Co
+
 } 
+
+export const createNewPost = async (newPost) => {
+    const URL = 'https://strangers-things.herokuapp.com/api/2112-ftb-et-web-pt/newPost';
+    const response = await fetch(URL, {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json',
+            // 'Authorization': 'Bearer TestCaseHere'
+        },
+        body: JSON.stringify(newPost)
+    });
+    console.log(response)
+    const json = await response.json();
+    console.log(json)
+    return json;
+}
