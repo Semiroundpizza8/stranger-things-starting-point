@@ -1,6 +1,6 @@
 export const getPosts = async () => {
 	// URL that we're gonna reach out to
-	const url = 'https://strangers-things.herokuapp.com/api/2112-ftb-et-web-pt/posts';
+	const url = 'https://strangers-things.herokuapp.com/api/2112-FTW-ET-WEB-PT/posts';
 
 	// Grab the body given back by the API
 	const response = await fetch(url);
