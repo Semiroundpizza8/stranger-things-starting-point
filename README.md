@@ -1,11 +1,8 @@
 # stranger-things-starting-point
 
-Completely different change! Oh no!
+This project is our stranger things stuff that we wanna update
 Watermelon
-Watermelon
-Watermelon
-Watermelon
-Watermellon
+words
 
 ## Building and running on localhost
 
