@@ -41,5 +41,3 @@ Made with [createapp.dev](https://createapp.dev/)
 
 
 We're in a new branch!
-
-BUG!!!
