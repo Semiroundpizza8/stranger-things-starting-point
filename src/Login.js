@@ -1,13 +1,11 @@
-import React, { useState } from 'react';
-
-const baseUrl = 'https://strangers-things.herokuapp.com';
+import React, { useState } from 'react'
 
 
 
 const Login = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-
+    
     const [hasTriggeredError, setHasTriggeredError] = useState(false);
 
     const handleSubmit = (event) => {
