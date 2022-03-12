@@ -13,6 +13,7 @@ const UserRegistration = () => {
   const handleSubmitButton = (event) => {
     event.preventDefault();
     console.log("Making a submit request...");
+    
     const dummyBody = {
       user: {
       username: userName,
@@ -24,11 +25,22 @@ const UserRegistration = () => {
 
     if(userName.length < 5) {
       setHasTriggeredError(true);
-    } else {
+    } 
+
+    if(password.length < 5) {
+      setHasTriggeredError(true)
+    }
+
+    if(password !== confirmPassword) {
+      alert("Password does not match")
+    }
+  
+    else {
       registerUser(dummyBody);
 
     setUserName("");
     setPassword("");
+    setConfirmPassword("");
     }
 
     console.log(userName);
@@ -58,7 +70,7 @@ const UserRegistration = () => {
       <input value={password} onChange={handlePassword} required />
 
       <label>Confirm Password</label>
-      <input value={password} onChange={handleReenterPassword} required/>
+      <input value={confirmPassword} onChange={handleReenterPassword} required/>
 
       {hasTriggeredError && <p style={{ color: 'red' }}> Whoopse, looks like you need to fix something! </p>}
 
