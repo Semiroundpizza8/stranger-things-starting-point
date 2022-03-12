@@ -14,5 +14,3 @@ const App = (props) => {
 }
 
 export default hot(App);
-
-
