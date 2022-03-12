@@ -22,7 +22,6 @@ export const getPosts = async () => {
 //             // 'Authorization': 'Bearer TestCaseHere'
 //         },
 //         body: JSON.stringify(newPost)
-//     const URL = 'https://strangers-things.herokuapp.com/api/2112-ftb-et-web-pt/newPost';
 //     });
 //     console.log(response)
 //     const createdPost = await response.json();
