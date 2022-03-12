@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { createNewPost } from "./api";
+import { registerUser } from "./api";
+import { testAuthentication } from "./api";
 
 
 const UserRegistration = () => {
@@ -13,19 +14,24 @@ const UserRegistration = () => {
     event.preventDefault();
     console.log("Making a submit request...");
     const dummyBody = {
-      userName: userName,
-      password: password,
-      confirmPassword:confirmPassword
+      user: {
+      username: userName,
+      password: password
+      
+      },
+
     };
 
     if(userName.length < 5) {
       setHasTriggeredError(true);
     } else {
-      createNewPost(dummyBody);
+      registerUser(dummyBody);
 
     setUserName("");
     setPassword("");
     }
+
+    console.log(userName);
 
   };
 
@@ -60,9 +66,23 @@ const UserRegistration = () => {
         Register!
       </button>
 
+      <button onClick={testAuthentication}>Test Auth</button>
+
     </div>
     
   );
 };
 
 export default UserRegistration;
+
+
+// button onClick={() => {
+//   const dummyCreds = {
+//     user: {
+//       username: "BenOdisho1000",
+//       password: "2112IsAwesome"
+//     }
+//   }
+//   registerUser(dummyCreds);
+// }}>Register User</button>
+// <button onClick={testAuthentication}>Test Auth</button>
