@@ -2,6 +2,7 @@
 import React from "react";
 import { hot } from 'react-hot-loader/root';
 import PostList from "./PostList";
+import Login from "./Login";
 
 const App = (props) => {
   const { name } = props;
@@ -9,6 +10,7 @@ const App = (props) => {
     <>
       <h1>Welcome, {name}</h1>
       <PostList />
+      <Login/>
     </>
   );
 }

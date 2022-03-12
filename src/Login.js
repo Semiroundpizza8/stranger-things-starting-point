@@ -1,4 +1,8 @@
-import React from "react";
+import React, { useState } from 'react';
+
+const baseUrl = 'https://strangers-things.herokuapp.com';
+
+
 
 const Login = () => {
     const [username, setUsername] = useState('');
@@ -44,4 +48,4 @@ const Login = () => {
     )
 }
 
-export default Login;
+ export default Login;
