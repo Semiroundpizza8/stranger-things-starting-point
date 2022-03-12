@@ -1,6 +1,8 @@
 # stranger-things-starting-point
 
-Empty project.
+This project is our stranger things stuff that we wanna update
+Watermelon
+words
 
 ## Building and running on localhost
 
@@ -35,3 +37,7 @@ Open the file `dist/index.html` in your browser
 ## Credits
 
 Made with [createapp.dev](https://createapp.dev/)
+
+
+
+We're in a new branch!
