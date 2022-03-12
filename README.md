@@ -1,6 +1,11 @@
 # stranger-things-starting-point
 
-Empty project.
+This project is our stranger things stuff that we wanna update
+words
+words
+words
+words
+words
 
 ## Building and running on localhost
 
