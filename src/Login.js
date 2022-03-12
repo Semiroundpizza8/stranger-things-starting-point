@@ -1,13 +1,16 @@
 import React, { useState } from "react";
-import { registerUser } from "./api";
+import { loginUser, logOutUser, registerUser } from "./api";
+import HomePage from "./HomePage";
 
 
 
 const UserRegistration = () => {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
-  const [confirmPassword,setConfirmPassword] = useState("");
+  
   const [hasTriggeredError,setHasTriggeredError] = useState(false);
+  
+  
 
 
   const handleSubmitButton = (event) => {
@@ -31,16 +34,14 @@ const UserRegistration = () => {
       setHasTriggeredError(true)
     }
 
-    if(password !== confirmPassword) {
-      alert("Password does not match")
-    }
+  
   
     else {
-      registerUser(dummyBody);
+      loginUser(dummyBody);
 
     setUserName("");
     setPassword("");
-    setConfirmPassword("");
+    
     }
 
     console.log(userName);
@@ -53,8 +54,9 @@ const UserRegistration = () => {
   const handlePassword = (event) => {
     setPassword(event.target.value);
   }
-  const handleReenterPassword = (event) => {
-    setConfirmPassword(event.target.value);
+  const handleLogout = () => {
+    logOutUser();
+    
   }
 
   if(hasTriggeredError) return <p style={{ color: 'red' }}> Whoopse, looks like you need to fix something! </p>
@@ -67,18 +69,17 @@ const UserRegistration = () => {
       <input value={userName} onChange={handleUserName} required />
 
       <label>Password</label>
-      <input value={password} onChange={handlePassword} required />
+      <input value={password} type="password" onChange={handlePassword} required />
 
-      <label>Confirm Password</label>
-      <input value={confirmPassword} onChange={handleReenterPassword} required/>
+     
 
       {hasTriggeredError && <p style={{ color: 'red' }}> Whoopse, looks like you need to fix something! </p>}
 
       <button onClick={handleSubmitButton}>
-        Register!
+        Sign In!
       </button>
 
-      
+      <button onClick = {handleLogout}>Sign Out!</button>
 
     </div>
     

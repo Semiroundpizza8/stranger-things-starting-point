@@ -104,3 +104,36 @@ export const registerUser = async (userObject) => {
 
     return json;
 }; 
+
+export const loginUser = async (userObject) => {
+    // URL that we're gonna reach out to
+    const url = `${baseUrl}/api/2112-FTW-ET-WEB-PT/users/login`;
+	console.log(userObject)
+    // Grab the body given back by the API
+    const response = await fetch(url, {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(userObject)
+    });
+
+    console.log(response)
+
+    // Take the body we got back and convert it to JS Object
+    const json = await response.json();
+    console.log(json)
+
+    // TOKEN : json.data.token
+     localStorage.setItem('stranger_things_login', json.data.token);
+
+    return json;
+}; 
+
+export const logOutUser = async () => {
+
+localStorage.removeItem('stranger_things_login');
+	
+}; 
+
+

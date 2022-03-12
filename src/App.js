@@ -5,6 +5,7 @@ import { hot } from 'react-hot-loader/root';
 // import UserRegistration from "./UserRegistration";
 import { BrowserRouter, Link, Route } from 'react-router-dom';
 import UserRegistration from "./UserRegistration"
+import Login from "./Login"
 
 const App = (props) => {
   // const { name } = props;
@@ -18,6 +19,8 @@ const App = (props) => {
       <h1>Welcome, {name}</h1> */}
        {/* <PostForm /> */}
       {/* <PostList /> */}
+      <Link to = "/login">Login</Link>
+      <Route path = "/login"><Login /></Route>
       <Link to = "/register">Register</Link> 
       <Route path = "/register">
         <UserRegistration />
