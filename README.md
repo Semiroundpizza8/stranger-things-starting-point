@@ -1,6 +1,11 @@
 # stranger-things-starting-point
 
-Empty project.
+Completely different change! Oh no!
+Watermelon
+Watermelon
+Watermelon
+Watermelon
+Watermellon
 
 ## Building and running on localhost
 
