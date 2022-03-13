@@ -10,7 +10,7 @@ const Login = () => {
     
     const [hasTriggeredError, setHasTriggeredError] = useState(false);
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
         if (username.length < 5) {
             setHasTriggeredError(true);
@@ -31,6 +31,7 @@ const Login = () => {
        
 
     }
+
 
     const handleChange = (event) => setUsername(event.target.value);
     const handlePasswordChange = (event) => setPassword(event.target.value)
