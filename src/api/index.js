@@ -62,6 +62,6 @@ export const registerUser = async (userObject) => {
 
 
 
-//   Login(dummyCreds);
+
 
 

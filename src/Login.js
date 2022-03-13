@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
-
+import { registerUser } from './api/index';
 
 
 const Login = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    
+    
     
     const [hasTriggeredError, setHasTriggeredError] = useState(false);
 
@@ -19,6 +21,15 @@ const Login = () => {
             setUsername('');
             setPassword('');
         }
+        
+        const dataObject = {
+            user: {username: username,
+                   password: password},
+        }
+
+        registerUser(dataObject)
+       
+
     }
 
     const handleChange = (event) => setUsername(event.target.value);
@@ -45,5 +56,7 @@ const Login = () => {
         </div>
     )
 }
+
+
 
  export default Login;
