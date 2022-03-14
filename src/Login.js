@@ -1,18 +1,17 @@
 import React, { useState } from "react";
-import { loginUser, logOutUser, registerUser } from "./api";
-import HomePage from "./HomePage";
+import { loginUser, logOutUser } from "./api";
+import styles from "./RegistrationStyles.styles";
 
 
 
-const UserRegistration = () => {
+
+const Login = () => {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
   
   const [hasTriggeredError,setHasTriggeredError] = useState(false);
+  const [isLoggedIn,setIsLoggedIn] = useState(false);
   
-  
-
-
   const handleSubmitButton = (event) => {
     event.preventDefault();
     console.log("Making a submit request...");
@@ -55,15 +54,21 @@ const UserRegistration = () => {
     setPassword(event.target.value);
   }
   const handleLogout = () => {
+    
     logOutUser();
+    isLoggedIn ? setIsLoggedIn(true):setIsLoggedIn(false);
+    console.log(isLoggedIn);  
+    
     
   }
 
   if(hasTriggeredError) return <p style={{ color: 'red' }}> Whoopse, looks like you need to fix something! </p>
 
+  
+
   return (
     
-    <div>
+    <div style={styles.loginStyle}>
       
       <label>Username</label>
       <input value={userName} onChange={handleUserName} required />
@@ -86,7 +91,7 @@ const UserRegistration = () => {
   );
 };
 
-export default UserRegistration;
+export default Login;
 
 
 // button onClick={() => {

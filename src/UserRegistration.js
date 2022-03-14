@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { registerUser } from "./api";
+import styles from './RegistrationStyles.styles'
 
 
 
@@ -22,6 +23,7 @@ const UserRegistration = () => {
       },
 
     };
+
 
     if(userName.length < 5) {
       setHasTriggeredError(true);
@@ -61,7 +63,7 @@ const UserRegistration = () => {
 
   return (
     
-    <div>
+    <div style={styles.registrationStyle}>
       
       <label>Username</label>
       <input value={userName} onChange={handleUserName} required />
@@ -77,10 +79,7 @@ const UserRegistration = () => {
       <button onClick={handleSubmitButton}>
         Register!
       </button>
-
-      
-
-    </div>
+  </div>
     
   );
 };
