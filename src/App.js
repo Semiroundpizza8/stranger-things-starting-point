@@ -8,7 +8,7 @@ const App = (props) => {
   const { name } = props;
   return (
     <>
-      <h1>Welcome, {name}</h1>
+      <h1 className="welcome">Welcome, {name}</h1>
       <PostList />
       <Login/>
     </>

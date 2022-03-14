@@ -7,13 +7,31 @@ const baseUrl = 'https://strangers-things.herokuapp.com';
 const Login = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-
+    
+    
+    
     const [hasTriggeredError, setHasTriggeredError] = useState(false);
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        setUsername ? ( setPassword ? true : 'error password') : 'error username';
-          
+        if (username.length < 5) {
+            setHasTriggeredError(true);
+        }
+        else {
+            console.log('username: ', username);
+            console.log('password: ', password);
+            setUsername('');
+            setPassword('');
+        }
+        
+        const dataObject = {
+            user: {username: username,
+                   password: password},
+        }
+
+        registerUser(dataObject)
+       
+
     }
 
 
