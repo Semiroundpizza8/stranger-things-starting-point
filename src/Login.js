@@ -1,13 +1,12 @@
 import React, { useState } from 'react'
-import { registerUser } from './api/index';
+import { login } from './api/index';
+
 
 
 const Login = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    
-    
-    
+
     const [hasTriggeredError, setHasTriggeredError] = useState(false);
 
     const handleSubmit = async (event) => {
@@ -27,7 +26,7 @@ const Login = () => {
                    password: password},
         }
 
-        registerUser(dataObject)
+        login(dataObject)
        
 
     }
