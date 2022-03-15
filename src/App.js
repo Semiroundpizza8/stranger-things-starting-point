@@ -26,7 +26,7 @@ const Main = () => {
       <div id="Container"> 
       
         <div className="Navbar">
-          <h2>Stranger Thing's</h2>
+          <h2>Stranger Things</h2>
           <Link to= "/register">Sign Up </Link>
           <Link to= "/login">Login</Link>
               
