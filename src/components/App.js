@@ -24,7 +24,7 @@ function App() {
 
   useEffect(() => {
     const fetchPosts = getPosts();
-    console.log("got posts" + fetchPosts);
+    // console.log("got posts" + fetchPosts);
   });
 
   return (
