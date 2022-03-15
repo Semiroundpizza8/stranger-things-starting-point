@@ -4,14 +4,16 @@ import styles from './RegistrationStyles.styles'
 
 
 
-const UserRegistration = () => {
+const UserRegistration = (props) => {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword,setConfirmPassword] = useState("");
   const [hasTriggeredError,setHasTriggeredError] = useState(false);
+  const {setIsLoggedIn} = props
+  
 
 
-  const handleSubmitButton = (event) => {
+  const handleSubmitButton = async (event) => {
     event.preventDefault();
     console.log("Making a submit request...");
     
@@ -38,11 +40,20 @@ const UserRegistration = () => {
     }
   
     else {
-      registerUser(dummyBody);
+      try {
+
+        await registerUser(dummyBody);
+        setIsLoggedIn(true)
+
 
     setUserName("");
     setPassword("");
     setConfirmPassword("");
+        
+      } catch (error) {
+        console.error(error)
+      }
+      
     }
 
     console.log(userName);

@@ -1,18 +1,18 @@
 import React, { useState } from "react";
-import { loginUser, logOutUser } from "./api";
+import { loginUser} from "./api";
 import styles from "./RegistrationStyles.styles";
 
 
 
 
-const Login = () => {
+const Login = (props) => {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
   
   const [hasTriggeredError,setHasTriggeredError] = useState(false);
-  const [isLoggedIn,setIsLoggedIn] = useState(false);
+  const {isLoggedIn,setIsLoggedIn} = props;
   
-  const handleSubmitButton = (event) => {
+  const handleSubmitButton = async (event) => {
     event.preventDefault();
     console.log("Making a submit request...");
     
@@ -35,11 +35,22 @@ const Login = () => {
 
   
   
+    
     else {
-      loginUser(dummyBody);
+
+      try {
+        await loginUser(dummyBody);
+      setIsLoggedIn(true);
+
 
     setUserName("");
     setPassword("");
+        
+      } catch (error) {
+        console.error(error);
+      }
+
+      
     
     }
 
@@ -53,14 +64,9 @@ const Login = () => {
   const handlePassword = (event) => {
     setPassword(event.target.value);
   }
-  const handleLogout = () => {
-    
-    logOutUser();
-    isLoggedIn ? setIsLoggedIn(true):setIsLoggedIn(false);
-    console.log(isLoggedIn);  
-    
-    
-  }
+  
+
+  
 
   if(hasTriggeredError) return <p style={{ color: 'red' }}> Whoopse, looks like you need to fix something! </p>
 
@@ -81,10 +87,10 @@ const Login = () => {
       {hasTriggeredError && <p style={{ color: 'red' }}> Whoopse, looks like you need to fix something! </p>}
 
       <button onClick={handleSubmitButton}>
-        Sign In!
+        Login
       </button>
 
-      <button onClick = {handleLogout}>Sign Out!</button>
+      
 
     </div>
     
