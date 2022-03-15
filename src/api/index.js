@@ -15,11 +15,13 @@ export const getPosts = async () => {
 };
 
 export const createNewPost = async (newPost) => {
-	const url = 'https://jsonplaceholder.typicode.com/posts/';
+	const url = 'https://strangers-things.herokuapp.com/api/2112-FTB-ET-WEB-PT/posts';
+    const token = localStorage.getItem('stranger_things_login')
 	const response = await fetch(url, {
 		method: 'POST',
 		headers: {
-			'Content-Type': 'application/json'
+			'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
 		},
 		body: JSON.stringify(newPost)
 	});
@@ -139,18 +141,23 @@ localStorage.removeItem('stranger_things_login');
 
 export const aboutMe = async () => {
 	// URL that we're gonna reach out to
-	const url =  `${baseUrl}/api/2112-FTB-ET-WEB-PT/users/me`
-    ;
-    fetch(url, {
-  headers: {
-    'Content-Type': 'application/json',
-    'Authorization': 'Bearer TOKEN_STRING_HERE'
-  },
-}).then(response => response.json())
-  .then(result => {
-    console.log(result);
-  })
-  .catch(console.error);
+	const url =  `${baseUrl}/api/2112-FTB-ET-WEB-PT/users/me`;
+    const token = localStorage.getItem('stranger_things_JWT')
+    
+    // Grab the body given back by the API
+    const response = await fetch(url, {
+        method: "GET",
+        headers: {
+            'Authorization': `Bearer ${token}`
+        }
+    });
+    console.log(response)
+
+    // Take the body we got back and convert it to JS Object
+    const json = await response.json();
+    console.log(json)
+
+    return json;
 
 }
 
