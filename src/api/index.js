@@ -32,7 +32,7 @@ export const createNewPost = async (newPost) => {
 
 
 export const login = async (userObject) => {
-    const URL = `${baseUrl}/api/2112-FTW-ET-WEB-PT/users/login`; 
+    const URL = `${baseUrl}/users/login`; 
     
     const response = await fetch (URL, {
         method: "POST",
@@ -80,10 +80,6 @@ export const registerUser = async (userObject) => {
 
 
 
-<<<<<<< HEAD
-//   Login(dummyCreds);
-=======
 
 
 
->>>>>>> Registration
