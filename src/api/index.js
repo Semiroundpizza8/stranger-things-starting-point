@@ -31,7 +31,25 @@ export const createNewPost = async (newPost) => {
 
 
 
+export const login = async (userObject) => {
+    const URL = `${baseUrl}/api/2112-FTW-ET-WEB-PT/users/login`; 
+    
+    const response = await fetch (URL, {
+        method: "POST",
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(userObject)
+      });
+      console.log("this is the response", response)
 
+      const json = await response.json();
+      console.log(json)
+  
+      localStorage.setItem('UserToken', json.data.token);
+  
+      return json;
+}
 
 
 
@@ -62,4 +80,10 @@ export const registerUser = async (userObject) => {
 
 
 
+<<<<<<< HEAD
 //   Login(dummyCreds);
+=======
+
+
+
+>>>>>>> Registration
