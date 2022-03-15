@@ -11,12 +11,15 @@ const PostList = () => {
 
   return (
     <div>
-      {/* {posts.map((post) => (
+      {posts.map((post) => (
         <div key={post.id}>
           <h2>{post.title}</h2>
-          <p>{post.body}</p>
+          <h3>{post.price}</h3>
+          <h4> {post.author.username}</h4>
+          <h5>{post.location}</h5>
+          <p>{post.description}</p>
         </div>
-      ))} */}
+      ))}
     </div>
   );
 };

@@ -11,5 +11,5 @@ export const getPosts = async () => {
   //Take the body we got back and convert it to JS Object
   const json = await response.json();
   console.log(json);
-  return json;
+  return json.data.posts;
 };
