@@ -1,7 +1,5 @@
-import React, { useState } from 'react';
-
-const baseUrl = 'https://strangers-things.herokuapp.com';
-
+import React, { useState } from 'react'
+import { registerUser } from './api/index';
 
 
 const Login = () => {
@@ -59,5 +57,7 @@ const Login = () => {
         </div>
     )
 }
+
+
 
  export default Login;
