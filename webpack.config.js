@@ -20,6 +20,7 @@ const config = {
     ]
   },
   devServer: {
+    historyApiFallback: true,
     'static': {
       directory: './dist'
     }

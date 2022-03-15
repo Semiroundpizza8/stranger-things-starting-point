@@ -1,7 +1,7 @@
 
-const baseUrl = 'https://strangers-things.herokuapp.com';
+const baseUrl = 'https://strangers-things.herokuapp.com/2112-FTW-ET-WEB-PT';
 
-const postUrl = 'https://strangers-things.herokuapp.com/api/2112-ftb-et-web-pt/posts';
+const postUrl = 'https://strangers-things.herokuapp.com/api/2112-FTW-ET-WEB-PT/posts';
 
 export const getPosts = async () => {
     try{
@@ -16,7 +16,7 @@ export const getPosts = async () => {
 } 
 
 export const createNewPost = async (newPost) => {
-    const URL = 'https://strangers-things.herokuapp.com/api/2112-ftb-et-web-pt/newPost';
+    const URL = `${baseUrl}/newPost`;
     const response = await fetch(URL, {
         method: "POST",
         headers: {
@@ -37,7 +37,7 @@ export const createNewPost = async (newPost) => {
 
 export const registerUser = async (userObject) => {
     // URL that we're gonna reach out to
-    const url = `${baseUrl}/api/2112-FTW-ET-WEB-PT/users/register`;
+    const url = `${baseUrl}/users/register`;
 
     // Grab the body given back by the API
     const response = await fetch(url, {
