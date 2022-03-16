@@ -56,13 +56,13 @@ export const deletePostById = async (postId) => {
     return json;
 };
 
-const baseUrl = 'https://strangers-things.herokuapp.com';
+const baseUrl = 'https://strangers-things.herokuapp.com/api/2112-FTB-ET-WEB-PT';
 const hardCodedToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjJjYmM2MjRiYWE0YzAwMTc4Y2E3NmIiLCJ1c2VybmFtZSI6IkJlbk9kaXNobyIsImlhdCI6MTY0NzA5ODk3OH0.LtAXxoKmxtK1_-jS5sr9UXtezvx6gPDAzgUHUokqKrs";
 
 
 export const testAuthentication = async () => {
     // URL that we're gonna reach out to
-    const url = `${baseUrl}/api/2112-FTW-ET-WEB-PT/test/me`;
+    const url = `${baseUrl}/test/me`;
     const token = localStorage.getItem('stranger_things_JWT')
 
     // Grab the body given back by the API
@@ -81,9 +81,10 @@ export const testAuthentication = async () => {
     return json;
 };
 
+
 export const registerUser = async (userObject) => {
     // URL that we're gonna reach out to
-    const url = `${baseUrl}/api/2112-FTW-ET-WEB-PT/users/register`;
+    const url = `${baseUrl}/users/register`;
 
     // Grab the body given back by the API
     const response = await fetch(url, {
@@ -105,3 +106,31 @@ export const registerUser = async (userObject) => {
 
     return json;
 };
+
+// fetch('https://strangers-things.herokuapp.com/api/COHORT-NAME/users/login', {
+//   method: "POST",
+//   headers: {
+//     'Content-Type': 'application/json'
+//   },
+//   body: JSON.stringify({
+//     user: {
+//       username: 'superman27',
+//       password: 'krypt0n0rbust'
+//     }
+//   })
+// })
+
+export const loginAsUser = async (userObject) => {
+    const url = `${baseUrl}/users/login`;
+
+    const response = await fetch(url, {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(userObject)
+    });
+
+    const json = await response.json();
+    console.log(json);
+}
