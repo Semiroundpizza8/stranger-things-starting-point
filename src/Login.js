@@ -8,13 +8,13 @@ const Login = (props) => {
     const [password, setPassword] = useState('');
 
     const [hasTriggeredError, setHasTriggeredError] = useState(false);
-    const {setLoggedIn} = props
+    const {setLoggedIn, loggedIn} = props
 
     const handleSubmit = async (event) => {
 
 
         event.preventDefault();
-        if (username.length < 5) {
+        if (password.length < 5) {
             setHasTriggeredError(true);
         }
         else {
@@ -36,17 +36,26 @@ const Login = (props) => {
     }
 
 
+
+    const logOut =  () => {
+        localStorage.removeItem("UserToken");
+        setLoggedIn(false);
+        console.log("here we are")
+      }
+     
+
+
     const handleChange = (event) => setUsername(event.target.value);
     const handlePasswordChange = (event) => setPassword(event.target.value)
 
     if (hasTriggeredError) return <p style={{ color: 'red' }}> Whoopse, looks like you need to fix something! </p>
-
+console.log(loggedIn)
     return (
-        <div id='User'>
-            {username.length === 0 ?
+        <div id='container'>
+            {!loggedIn? <>
+           { username.length === 0 ?
                 <div id='navbar'> Please enter in a name below: </div> :
-                <div id='navbar'> Hello, {username}, please enter in your information </div>
-            }
+                <div id='navbar'> Hello, {username}, please enter in your information </div>}
             <form onSubmit={handleSubmit}>
                 <label htmlFor='username'>Username:</label>
                 <input type='text' name='username' value={username} onChange={handleChange} />
@@ -56,7 +65,8 @@ const Login = (props) => {
                     <p style={{ color: 'red' }}> Whoopse, looks like you need to fix something! </p>
                 }
                 <button type='submit'>Submit</button>
-            </form>
+            </form> </> :
+            <button onClick={logOut}>Log out</button>}
         </div>
     )
 }

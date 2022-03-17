@@ -8,6 +8,7 @@ import { BrowserRouter, Route, Link, Switch } from "react-router-dom";
 
 
 
+
 const App = (props) => {
   
 
@@ -20,11 +21,14 @@ const App = (props) => {
       
     </>
   );
-}
+};
+
 
 const Main = () => {
   const [loggedIn, setLoggedIn] = useState(false);
-  
+//   useEffect(() => { setIsLoggedIn(!!localStorage.getItem("stranger_things_JWT");
+// }, []);
+
   return (
     <BrowserRouter>
       <div id="Container"> 
@@ -32,10 +36,9 @@ const Main = () => {
         <div className="Navbar">
           <h2>Stranger Things</h2>
           {/* set up a ternary that shows SIGN UP AND LOGIN if loggedIn = false */}
-          <div className="Links">
-            <Link to= "/register">Sign Up </Link>
-            <Link to= "/login">Login</Link>
-          </div>
+          <Link to= "/register">Sign Up </Link>
+          <Link to= "/login">Login</Link>
+          
           {/* if loggedIn is TRUE, display link to sign out */}
               
         </div>
@@ -45,7 +48,9 @@ const Main = () => {
           when loading the login/register components. 
           If loggedIn is TRUE, can redirect to "/" route
       */}
+
         {/* <Route path= "/login">
+
           <Login setLoggedIn={setLoggedIn} loggedIn={loggedIn}/>
         </Route> */}
 
@@ -53,10 +58,14 @@ const Main = () => {
           <RegisterLogin setLoggedIn={setLoggedIn} loggedIn={loggedIn}/>
         </Route>
 
-        <Route path = "/">
-         {!loggedIn && <Login setLoggedIn={setLoggedIn} loggedIn={loggedIn}/> }
+        <Route path = "/login">
+         { <Login setLoggedIn={setLoggedIn} loggedIn={loggedIn}/> }
          {loggedIn && <PostList />}
         </Route>
+
+        {/* <Route path="/logout">
+        {logOut()}
+          </Route> */}
 
       </Switch>
       </div>
