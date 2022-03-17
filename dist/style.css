@@ -1,6 +1,6 @@
 #app {
     display: grid;
-    background-color: orange;
+    background-color: rgb(255, 166, 0);
     font-size: medium;
     border: blue;
     padding: 5%;
@@ -8,16 +8,67 @@
 }
 
 .welcome {
-background-color: lightblue;
+background-color: rgb(198, 228, 238);
 margin: 5%;
 padding: 3%;
 
 }
 
+.Logo {
+    font-family: cursive;
+    font-size: 40px;
+    
+}
+
 .Navbar {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
 }
 
+#Register {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-left: 50px;
+
+}
+
+#Login-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-left: 40px;
+    margin: 20px;
+
+}
+
+label {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: large;
+    padding-top: 10px;
+}
+
+#summit {
+    display: flex;
+    flex-direction: column;
+    font-size: large;
+    margin-top: 10px;
+    
+}
+
+#div-navbar {
+    font-size: x-large;
+    padding-bottom: 10px;
+    
+}
+
+#LogOut {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    
+}

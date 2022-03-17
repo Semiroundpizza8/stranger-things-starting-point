@@ -51,22 +51,22 @@ const RegisterLogin = () => {
     return (
         <div id='Register'>
             {username.length === 0 ?
-                <div id='navbar'> Please enter in a name below: </div> :
-                <div id='navbar'> Hello, {username}, please enter in your information </div>
+                <div id='div-navbar'> Please enter in a name below: </div> :
+                <div id='div-navbar'> Hello {username}, please enter in your information </div>
             }
             <form onSubmit={handleSubmit}>
             <label htmlFor='Name'>Name:</label>
             <input type='text' name='Name' value={name} onChange={handleName} />
-                <label htmlFor='email'>Your Email:</label>
+                <label htmlFor='email'>Email:</label>
                 <input type='email' name='Email' value={email} onChange={handleEmail} />
-                <label htmlFor='username'>username:</label>
+                <label htmlFor='username'>Create Username: </label>
                 <input type='text' name='username' value={username} onChange={handleChange} />
-                <label htmlFor='password'>Password:</label>
+                <label htmlFor='password'>Create Password: </label>
                 <input type='password' name='password' value={password} onChange={handlePasswordChange} />
                 {hasTriggeredError &&
                     <p style={{ color: 'red' }}> Whoopse, looks like you need to fix something! </p>
                 }
-                <button type='submit'>Submit</button>
+                <button id="summit" type='submit'>Submit</button>
             </form>
         </div>
     )

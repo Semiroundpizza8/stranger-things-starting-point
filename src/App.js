@@ -9,14 +9,12 @@ import { BrowserRouter, Route, Link, Switch } from "react-router-dom";
 
 
 
-const App = (props) => {
+const App = () => {
   
-
-  const { name } = props;
   return (
     <>
       <Main />
-      <h1 className="welcome">Welcome, {name}</h1>
+      <h1 className="welcome">Welcome To Stranger Things! Please Login :) </h1>
       
       
     </>
@@ -34,8 +32,9 @@ const Main = () => {
       <div id="Container"> 
       
         <div className="Navbar">
-          <h2>Stranger Things</h2>
+          <h1 className="Logo">Stranger Things</h1>
           {/* set up a ternary that shows SIGN UP AND LOGIN if loggedIn = false */}
+         
           <Link to= "/register">Sign Up </Link>
           <Link to= "/login">Login</Link>
           

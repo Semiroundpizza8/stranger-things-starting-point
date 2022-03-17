@@ -51,11 +51,11 @@ const Login = (props) => {
     if (hasTriggeredError) return <p style={{ color: 'red' }}> Whoopse, looks like you need to fix something! </p>
 console.log(loggedIn)
     return (
-        <div id='container'>
+        <div id='Login-container'>
             {!loggedIn? <>
            { username.length === 0 ?
-                <div id='navbar'> Please enter in a name below: </div> :
-                <div id='navbar'> Hello, {username}, please enter in your information </div>}
+                <div id='div-navbar'> Please sign in below: </div> :
+                <div id='div-navbar'> Hello {username}, please enter in your information </div>}
             <form onSubmit={handleSubmit}>
                 <label htmlFor='username'>Username:</label>
                 <input type='text' name='username' value={username} onChange={handleChange} />
@@ -64,9 +64,9 @@ console.log(loggedIn)
                 {hasTriggeredError &&
                     <p style={{ color: 'red' }}> Whoopse, looks like you need to fix something! </p>
                 }
-                <button type='submit'>Submit</button>
+                <button id="summit" type='submit'>Submit</button>
             </form> </> :
-            <button onClick={logOut}>Log out</button>}
+            <button className="LogOut" onClick={logOut}>Log out</button>}
         </div>
     )
 }
