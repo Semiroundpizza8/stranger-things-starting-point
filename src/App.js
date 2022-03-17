@@ -45,16 +45,20 @@ const Main = () => {
           when loading the login/register components. 
           If loggedIn is TRUE, can redirect to "/" route
       */}
+<<<<<<< HEAD
       
         <Route path= "/login">
+=======
+        {/* <Route path= "/login">
+>>>>>>> d631fdceef7ee7315a4db470eee7c8b8793dd6c3
           <Login setLoggedIn={setLoggedIn} loggedIn={loggedIn}/>
-        </Route>
+        </Route> */}
 
         <Route path= "/register">
           <RegisterLogin setLoggedIn={setLoggedIn} loggedIn={loggedIn}/>
         </Route>
 
-        <Route exact path = "/">
+        <Route path = "/">
          {!loggedIn && <Login setLoggedIn={setLoggedIn} loggedIn={loggedIn}/> }
          {loggedIn && <PostList />}
         </Route>

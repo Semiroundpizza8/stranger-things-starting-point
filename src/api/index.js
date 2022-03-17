@@ -45,10 +45,15 @@ export const login = async (userObject) => {
 
       const json = await response.json();
       console.log(json)
+
+      if(json.data === null){
+          return false;
+      }
+      else {
+         localStorage.setItem('UserToken', json.data.token);
+         return true;
+      }
   
-      localStorage.setItem('UserToken', json.data.token);
-  
-      return json;
 }
 
 
@@ -56,6 +61,7 @@ export const login = async (userObject) => {
 export const registerUser = async (userObject) => {
     // URL that we're gonna reach out to
     const url = `${baseUrl}/users/register`;
+    console.log(url);
 
     // Grab the body given back by the API
     const response = await fetch(url, {

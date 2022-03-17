@@ -29,11 +29,15 @@ const RegisterLogin = () => {
                 name: name,
                 email: email,
                 username: username,
-                   password: password},
+                password: password},
         }
 
         registerUser(dataObject)
+<<<<<<< HEAD
         console.log(dataObject);
+=======
+        
+>>>>>>> d631fdceef7ee7315a4db470eee7c8b8793dd6c3
 
     }
 
