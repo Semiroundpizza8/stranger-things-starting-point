@@ -8,6 +8,7 @@ import { BrowserRouter, Route, Link, Switch } from "react-router-dom";
 
 
 
+
 const App = (props) => {
   
 
@@ -20,7 +21,8 @@ const App = (props) => {
       
     </>
   );
-}
+};
+
 
 const Main = () => {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -36,6 +38,7 @@ const Main = () => {
           {/* set up a ternary that shows SIGN UP AND LOGIN if loggedIn = false */}
           <Link to= "/register">Sign Up </Link>
           <Link to= "/login">Login</Link>
+          
           {/* if loggedIn is TRUE, display link to sign out */}
               
         </div>
@@ -45,12 +48,9 @@ const Main = () => {
           when loading the login/register components. 
           If loggedIn is TRUE, can redirect to "/" route
       */}
-<<<<<<< HEAD
-      
-        <Route path= "/login">
-=======
+
         {/* <Route path= "/login">
->>>>>>> d631fdceef7ee7315a4db470eee7c8b8793dd6c3
+
           <Login setLoggedIn={setLoggedIn} loggedIn={loggedIn}/>
         </Route> */}
 
@@ -58,10 +58,14 @@ const Main = () => {
           <RegisterLogin setLoggedIn={setLoggedIn} loggedIn={loggedIn}/>
         </Route>
 
-        <Route path = "/">
-         {!loggedIn && <Login setLoggedIn={setLoggedIn} loggedIn={loggedIn}/> }
+        <Route path = "/login">
+         { <Login setLoggedIn={setLoggedIn} loggedIn={loggedIn}/> }
          {loggedIn && <PostList />}
         </Route>
+
+        {/* <Route path="/logout">
+        {logOut()}
+          </Route> */}
 
       </Switch>
       </div>

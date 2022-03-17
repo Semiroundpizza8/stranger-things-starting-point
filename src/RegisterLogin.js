@@ -33,11 +33,7 @@ const RegisterLogin = () => {
         }
 
         registerUser(dataObject)
-<<<<<<< HEAD
-        console.log(dataObject);
-=======
-        
->>>>>>> d631fdceef7ee7315a4db470eee7c8b8793dd6c3
+
 
     }
 
