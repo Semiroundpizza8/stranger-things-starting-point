@@ -29,8 +29,8 @@ export const createNewPost = async (newPost) => {
     return json;
 };
 
-export const updateNewPost = async (newPost) => {
-    const url = 'https://jsonplaceholder.typicode.com/posts/';
+export const updateNewPost = async (postId, newPost) => {
+    const url = `https://jsonplaceholder.typicode.com/posts/${postId}`;
     const response = await fetch(url, {
         method: "PATCH",
         headers: {
@@ -78,7 +78,7 @@ export const testAuthentication = async () => {
     const json = await response.json();
     console.log(json)
 
-    return json;
+    return json.success;
 };
 
 
@@ -133,4 +133,6 @@ export const loginAsUser = async (userObject) => {
 
     const json = await response.json();
     console.log(json);
+    localStorage.setItem('stranger_things_JWT', json.data.token);
+
 }
