@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { getPosts } from './api';
 
-const PostList = () => {
-    const [posts, setPosts] = useState([]);
-
+const PostList = (props) => {
+    
+    const {posts, setPosts} = props;
     useEffect(async () => {
         const posts = await getPosts();
         setPosts(posts.data.posts);

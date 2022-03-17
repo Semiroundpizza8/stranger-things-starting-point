@@ -1,12 +1,17 @@
 import React, { useState } from "react";
 import { createNewPost } from "./api";
 
-const PostForm = () => {
+const PostForm = (props) => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-  const [price, setPrice] = useState(0);
+  const [price, setPrice] = useState("0");
   const [willDeliver, setWillDeliver] = useState(false);
-  const handlePostButtonClick = () => {
+  
+  
+  const {posts, setPosts} = props;
+
+
+  const handlePostButtonClick = async () => {
     console.log("Making a post request...");
     const dummyBody = {
       title: title,
@@ -15,11 +20,18 @@ const PostForm = () => {
       willDeliver:willDeliver
     };
 
-    createNewPost(dummyBody);
+    const data = await createNewPost(dummyBody);
+    const newPost = data.data.post;
 
+    
+    console.log("newPost",newPost)
+
+    const newPostList = [newPost, ...posts]
+    setPosts(newPostList);
+    
     setTitle("");
     setDescription("");
-    setPrice(0);
+    setPrice("0");
     setWillDeliver(false)
   };
 

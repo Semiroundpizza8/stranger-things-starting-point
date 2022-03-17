@@ -1,10 +1,18 @@
 const baseUrl = 'https://strangers-things.herokuapp.com';
 export const getPosts = async () => {
+    const token = localStorage.getItem('stranger_things_login')
+    console.log(token);
 	// URL that we're gonna reach out to
 	const url = `${baseUrl}/api/2112-FTB-ET-WEB-PT/posts`;
 
 	// Grab the body given back by the API
-	const response = await fetch(url);
+
+	const response = await fetch(url, {
+        method: "GET",
+        headers: {
+            'Authorization': token ? `Bearer ${token}`:null,
+        }
+    });
 	console.log(response);
 
 	// Take the body we got back and convert it to JS Object
@@ -23,11 +31,12 @@ export const createNewPost = async (newPost) => {
 			'Content-Type': 'application/json',
             'Authorization': `Bearer ${token}`
 		},
-		body: JSON.stringify(newPost)
+		body: JSON.stringify({post:newPost})
+        
 	});
 
 	const json = await response.json();
-	console.log(json);
+	console.log("response",json);
 	return json;
 };
 
@@ -78,7 +87,7 @@ export const testAuthentication = async () => {
 
     // Take the body we got back and convert it to JS Object
     const json = await response.json();
-    console.log(json)
+    console.log("responsejwt",json)
 
     return json;
 };

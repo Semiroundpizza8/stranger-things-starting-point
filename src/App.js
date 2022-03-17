@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { hot } from 'react-hot-loader/root';
 import PostForm from './PostForm';
 import PostList from './PostList';
@@ -9,10 +9,30 @@ import styles from './RegistrationStyles.styles';
 import { logOutUser } from './api';
 import Header from './Header';
 import Home from './Home';
+import { testAuthentication } from './api';
+import MyPosts from './MyPosts';
 
 
 const App = () => {
 	const [isLoggedIn,setIsLoggedIn] = useState(false);
+
+	async function isValidJWT() {
+		const token = localStorage.getItem("stranger_things_JWT");
+		if (!token) setIsLoggedIn(false);
+		else {
+		const isValid = await testAuthentication();
+		setIsLoggedIn(isValid);
+		// setIsLoggedIn(true);
+		
+		}
+		console.log("isLoggedIn",isLoggedIn);
+	}
+	
+	useEffect(() => {
+		isValidJWT();
+	}, []);
+
+	const [posts, setPosts] = useState([]);
 	const handleLogout = () => {
     
 		logOutUser();
@@ -43,16 +63,23 @@ const App = () => {
 				</Route> }
 
 				{isLoggedIn && <Route path="/posts">
-					<PostList isLoggedIn = {isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>
+					<PostForm isLoggedIn = {isLoggedIn} setIsLoggedIn={setIsLoggedIn} posts = {posts} setPosts = {setPosts}/>
 					
 				</Route> }
 
-				{isLoggedIn && <Route path="/posts">
-					<PostForm isLoggedIn = {isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>
+				{<Route path="/posts">
+					<PostList posts = {posts} setPosts = {setPosts}/>
 					
 				</Route> }
 
-				{isLoggedIn ? <><Link to = "/logout" onClick={handleLogout}>Logout</Link> <Link to ="/posts">Posts</Link> <Link to = "/home">Home</Link> </>: <><Link to="/register">Register</Link><Link to="/login">Login</Link></>}
+				{<Route path="/myposts">
+					<MyPosts isLoggedIn = {isLoggedIn} setIsLoggedIn={setIsLoggedIn} posts = {posts} setPosts = {setPosts}/>
+					
+				</Route> }
+
+				
+
+				{isLoggedIn ? <><Link to = "/logout" onClick={handleLogout}>Logout</Link> <Link to ="/posts">Posts</Link> <Link to = "/myposts">My Posts</Link><Link to = "/home">Home</Link> </>: <><Link to="/register">Register</Link><Link to="/login">Login</Link><Link to ="/posts">Posts</Link></>}
 
 				
 			</BrowserRouter>
