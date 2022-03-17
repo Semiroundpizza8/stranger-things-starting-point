@@ -16,7 +16,7 @@ padding: 3%;
 
 .Logo {
     font-family: cursive;
-    font-size: 40px;
+    font-size: 45px;
     
 }
 
@@ -70,5 +70,9 @@ label {
     display: flex;
     flex-direction: row;
     justify-content: end;
-    
+
+}
+
+Link {
+    font-size: xx-large;
 }

@@ -35,8 +35,8 @@ const Main = () => {
           <h1 className="Logo">Stranger Things</h1>
           {/* set up a ternary that shows SIGN UP AND LOGIN if loggedIn = false */}
          
-          <Link to= "/register">Sign Up </Link>
-          <Link to= "/login">Login</Link>
+          <Link style ={{fontSize: "23px"}} to= "/register">Sign Up </Link>
+          <Link style ={{fontSize: "23px"}} to= "/login">Login</Link>
           
           {/* if loggedIn is TRUE, display link to sign out */}
               
