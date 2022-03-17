@@ -12,7 +12,7 @@ const RegisterLogin = () => {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        if (username.length < 5) {
+        if (password.length < 5) {
             setHasTriggeredError(true);
         }
         else {
@@ -58,11 +58,11 @@ const RegisterLogin = () => {
                 <div id='navbar'> Hello, {username}, please enter in your information </div>
             }
             <form onSubmit={handleSubmit}>
-            <label htmlFor='Name'>Username:</label>
-                <input type='text' name='Name' value={name} onChange={handleName} />
-                <label htmlFor='Name'>Your Name:</label>
-                <input type='text' name='Email' value={email} onChange={handleEmail} />
-                <label htmlFor='email'>email:</label>
+            <label htmlFor='Name'>Name:</label>
+            <input type='text' name='Name' value={name} onChange={handleName} />
+                <label htmlFor='email'>Your Email:</label>
+                <input type='email' name='Email' value={email} onChange={handleEmail} />
+                <label htmlFor='username'>username:</label>
                 <input type='text' name='username' value={username} onChange={handleChange} />
                 <label htmlFor='password'>Password:</label>
                 <input type='password' name='password' value={password} onChange={handlePasswordChange} />

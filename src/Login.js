@@ -13,7 +13,7 @@ const Login = (props) => {
 
 
         event.preventDefault();
-        if (username.length < 5) {
+        if (password.length < 5) {
             setHasTriggeredError(true);
         }
         else {
