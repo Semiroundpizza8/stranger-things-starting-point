@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { login } from './api/index';
 
 
+
 const Login = (props) => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -41,7 +42,7 @@ const Login = (props) => {
     if (hasTriggeredError) return <p style={{ color: 'red' }}> Whoopse, looks like you need to fix something! </p>
 
     return (
-        <div id='container'>
+        <div id='User'>
             {username.length === 0 ?
                 <div id='navbar'> Please enter in a name below: </div> :
                 <div id='navbar'> Hello, {username}, please enter in your information </div>

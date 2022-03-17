@@ -32,6 +32,7 @@ const RegisterLogin = () => {
                 password: password},
         }
 
+    
         registerUser(dataObject)
         
 
@@ -46,20 +47,20 @@ const RegisterLogin = () => {
     if (hasTriggeredError) return <p style={{ color: 'red' }}> Whoopse, looks like you need to fix something! </p>
 
     return (
-        <div id='container'>
+        <div id='Register'>
             {username.length === 0 ?
                 <div id='navbar'> Please enter in a name below: </div> :
                 <div id='navbar'> Hello, {username}, please enter in your information </div>
             }
             <form onSubmit={handleSubmit}>
-            <label htmlFor='Name'>Username:</label>
+            <label htmlFor='Name'>Name:</label>
                 <input type='text' name='Name' value={name} onChange={handleName} />
-                <label htmlFor='Name'>Your Name:</label>
+                <label htmlFor='Name'>Email:</label>
                 <input type='text' name='Email' value={email} onChange={handleEmail} />
-                <label htmlFor='email'>email:</label>
-                <input type='text' name='username' value={username} onChange={handleChange} />
-                <label htmlFor='password'>Password:</label>
-                <input type='password' name='password' value={password} onChange={handlePasswordChange} />
+                <label htmlFor='email'>Create Username:</label>
+                <input type='text' name='Username' value={username} onChange={handleChange} />
+                <label htmlFor='password'>Create Password:</label>
+                <input type='password' name='Password' value={password} onChange={handlePasswordChange} />
                 {hasTriggeredError &&
                     <p style={{ color: 'red' }}> Whoopse, looks like you need to fix something! </p>
                 }

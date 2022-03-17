@@ -32,8 +32,10 @@ const Main = () => {
         <div className="Navbar">
           <h2>Stranger Things</h2>
           {/* set up a ternary that shows SIGN UP AND LOGIN if loggedIn = false */}
-          <Link to= "/register">Sign Up </Link>
-          <Link to= "/login">Login</Link>
+          <div className="Links">
+            <Link to= "/register">Sign Up </Link>
+            <Link to= "/login">Login</Link>
+          </div>
           {/* if loggedIn is TRUE, display link to sign out */}
               
         </div>
