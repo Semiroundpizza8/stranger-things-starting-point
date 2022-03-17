@@ -24,7 +24,9 @@ const App = (props) => {
 
 const Main = () => {
   const [loggedIn, setLoggedIn] = useState(false);
-  
+//   useEffect(() => { setIsLoggedIn(!!localStorage.getItem("stranger_things_JWT");
+// }, []);
+
   return (
     <BrowserRouter>
       <div id="Container"> 
@@ -43,6 +45,7 @@ const Main = () => {
           when loading the login/register components. 
           If loggedIn is TRUE, can redirect to "/" route
       */}
+      
         <Route path= "/login">
           <Login setLoggedIn={setLoggedIn} loggedIn={loggedIn}/>
         </Route>

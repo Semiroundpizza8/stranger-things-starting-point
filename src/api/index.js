@@ -1,5 +1,5 @@
 
-const baseUrl = 'https://strangers-things.herokuapp.com/2112-FTW-ET-WEB-PT';
+const baseUrl = 'https://strangers-things.herokuapp.com/api/2112-FTW-ET-WEB-PT';
 
 const postUrl = 'https://strangers-things.herokuapp.com/api/2112-FTW-ET-WEB-PT/posts';
 

@@ -33,9 +33,11 @@ const RegisterLogin = () => {
         }
 
         registerUser(dataObject)
-       
+        console.log(dataObject);
 
     }
+
+    
 
 
     const handleChange = (event) => setUsername(event.target.value);
