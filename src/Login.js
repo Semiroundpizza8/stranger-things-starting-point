@@ -2,16 +2,16 @@ import React, { useState } from 'react'
 import { login } from './api/index';
 
 
-
-
 const Login = (props) => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
     const [hasTriggeredError, setHasTriggeredError] = useState(false);
     const {setLoggedIn} = props
-    
+
     const handleSubmit = async (event) => {
+
+
         event.preventDefault();
         if (username.length < 5) {
             setHasTriggeredError(true);
@@ -28,8 +28,8 @@ const Login = (props) => {
                    password: password},
         }
 
-        login(dataObject)
-        setLoggedIn(true)
+        const didLoggedInWork = await login(dataObject);
+        setLoggedIn(didLoggedInWork);
        
 
     }
