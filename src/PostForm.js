@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { createNewPost } from "./api";
+import styles from "./RegistrationStyles.styles";
 
 const PostForm = (props) => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("0");
   const [willDeliver, setWillDeliver] = useState(false);
-  
+
   
   const {posts, setPosts} = props;
 
@@ -49,7 +50,7 @@ const PostForm = (props) => {
   }
 
   return (
-    <div>
+    <div style={styles.postFormStyle}>
       <input value={title} onChange={handleTitleChange} />
       <input value={description} onChange={handleDescription} />
       <input value={price} onChange={handlePrice} />

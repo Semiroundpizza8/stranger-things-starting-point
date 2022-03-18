@@ -56,15 +56,15 @@ export const updateNewPost = async (newPost) => {
 };
 
 export const deletePostById = async (postId) => {
-	const url = `https://jsonplaceholder.typicode.com/posts/${postId}`;
+    const url = `${baseUrl}/api/2112-FTB-ET-WEB-PT/posts/${postId}`;
 
-	const response = await fetch(url, {
-		method: 'DELETE'
-	});
+    const response = await fetch(url, {
+        method: "DELETE"
+    });
 
-	const json = await response.json();
-	console.log(json);
-	return json;
+    const json = await response.json();
+    console.log(json);
+    return json;
 };
 
 
