@@ -79,9 +79,13 @@ export const registerUser = async (userObject) => {
     console.log(json)
 
     // TOKEN : json.data.token
-    localStorage.setItem('UserToken', json.data.token);
-
-    return json;
+    if(json.data === null){
+        return false;
+    }
+    else {
+       localStorage.setItem('UserToken', json.data.token);
+       return true;
+    }
 }
 
 

@@ -1,7 +1,7 @@
 import React, {useState} from "react";
-import { registerUser } from "./api";
+import { registerUser, login } from "./api";
 
-const RegisterLogin = () => {
+const RegisterLogin = (props) => {
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -9,6 +9,13 @@ const RegisterLogin = () => {
     const [email, setEmail] = useState(''); 
 
     const [hasTriggeredError, setHasTriggeredError] = useState(false);
+    const {loggedIn, setLoggedIn} = props
+
+    const logOut =  () => {
+        localStorage.removeItem("UserToken");
+        setLoggedIn(false);
+        console.log("here we are")
+      }
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -32,8 +39,12 @@ const RegisterLogin = () => {
                 password: password},
         }
 
+       
+
+        const didLoggedInWork = await registerUser(dataObject);
+        setLoggedIn(didLoggedInWork);
+
     
-        registerUser(dataObject)
 
 
     }
@@ -50,24 +61,22 @@ const RegisterLogin = () => {
 
     return (
         <div id='Register'>
-            {username.length === 0 ?
-                <div id='div-navbar'> Please enter in a name below: </div> :
-                <div id='div-navbar'> Hello {username}, please enter in your information </div>
-            }
+            {!loggedIn? 
+            <>
             <form onSubmit={handleSubmit}>
             <label htmlFor='Name'>Name:</label>
             <input type='text' name='Name' value={name} onChange={handleName} />
-                <label htmlFor='email'>Email:</label>
-                <input type='email' name='Email' value={email} onChange={handleEmail} />
-                <label htmlFor='username'>Create Username: </label>
-                <input type='text' name='username' value={username} onChange={handleChange} />
-                <label htmlFor='password'>Create Password: </label>
-                <input type='password' name='password' value={password} onChange={handlePasswordChange} />
+            <label htmlFor='email'>Email:</label>
+            <input type='email' name='Email' value={email} onChange={handleEmail} />
+             <label htmlFor='username'>Create Username: </label>
+            <input type='text' name='username' value={username} onChange={handleChange} /> 
+            <label htmlFor='password'>Create Password: </label>
+            <input type='password' name='password' value={password} onChange={handlePasswordChange} />
                 {hasTriggeredError &&
                     <p style={{ color: 'red' }}> Whoopse, looks like you need to fix something! </p>
                 }
                 <button id="summit" type='submit'>Submit</button>
-            </form>
+            </form> </> : <button className="LogOut" onClick={logOut}>Log out</button>}
         </div>
     )
 }
