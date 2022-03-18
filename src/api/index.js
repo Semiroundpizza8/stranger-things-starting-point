@@ -16,12 +16,12 @@ export const getPosts = async () => {
 } 
 
 export const createNewPost = async (newPost) => {
-    const URL = `${baseUrl}/newPost`;
+    const URL = `${baseUrl}/posts`;
     const response = await fetch(URL, {
         method: "POST",
         headers: {
             'Content-Type': 'application/json',
-            // 'Authorization': 'Bearer TestCaseHere'
+            'Authorization': json.data.token
         },
         body: JSON.stringify(newPost)
     });

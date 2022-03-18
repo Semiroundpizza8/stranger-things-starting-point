@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import { registerUser, login } from "./api";
+import { registerUser } from "./api";
 
 const RegisterLogin = (props) => {
 

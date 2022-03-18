@@ -5,6 +5,7 @@ import PostList from "./PostList";
 import Login from "./Login";
 import RegisterLogin from "./RegisterLogin";
 import { BrowserRouter, Route, Link, Switch } from "react-router-dom";
+import PostForm from "./PostForm";
 
 
 
@@ -19,6 +20,7 @@ const App = (props) => {
       <h1 className="welcome">Welcome, {name}</h1>
       
       <PostList />
+      <PostForm />
     </>
   );
 };
