@@ -68,6 +68,24 @@ export const deletePostById = async (postId) => {
 };
 
 
+export const createMessages = async (postId,content) => {
+	const url = `${baseUrl}/api/2112-FTB-ET-WEB-PT/posts/${postId}/messages`;
+    const token = localStorage.getItem('stranger_things_login')
+	const response = await fetch(url, {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+		},
+		body: JSON.stringify({message:content})
+        
+	});
+
+	const json = await response.json();
+	console.log("response",json);
+	return json;
+};
+
 //const hardCodedToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjJjYmM2MjRiYWE0YzAwMTc4Y2E3NmIiLCJ1c2VybmFtZSI6IkJlbk9kaXNobyIsImlhdCI6MTY0NzA5ODk3OH0.LtAXxoKmxtK1_-jS5sr9UXtezvx6gPDAzgUHUokqKrs";
 
 
@@ -168,5 +186,9 @@ export const aboutMe = async () => {
 
     return json;
 
+    
 }
+
+
+
 

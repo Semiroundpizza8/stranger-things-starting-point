@@ -7,9 +7,13 @@ const PostForm = (props) => {
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("0");
   const [willDeliver, setWillDeliver] = useState(false);
+  
+
 
   
   const {posts, setPosts} = props;
+  
+  
 
 
   const handlePostButtonClick = async () => {
@@ -36,6 +40,12 @@ const PostForm = (props) => {
     setWillDeliver(false)
   };
 
+//   Send a message to the author of any post for which they are not the author
+// See all messages for any post for which they are the author
+// See all messages they've received in a special view
+
+ 
+
   const handleTitleChange = (event) => {
     setTitle(event.target.value);
   }
@@ -48,6 +58,7 @@ const PostForm = (props) => {
   const handleWillDeliver = (event) => {
     setWillDeliver(event.target.value);
   }
+  
 
   return (
     <div style={styles.postFormStyle}>
@@ -55,10 +66,18 @@ const PostForm = (props) => {
       <input value={description} onChange={handleDescription} />
       <input value={price} onChange={handlePrice} />
       <input value={willDeliver} onChange={handleWillDeliver} />
-
-      <button onClick={handlePostButtonClick}>
+       <button onClick={handlePostButtonClick}>
         Make Post Request!
       </button>
+
+     
+        
+        
+      
+     
+     
+      
+
     </div>
   );
 };
