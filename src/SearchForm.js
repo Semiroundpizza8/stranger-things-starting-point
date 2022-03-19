@@ -15,7 +15,7 @@ const SearchForm = (props) => {
     }, []);
 
     const postMatches = (post,searchTerm) => {
-        if(post.title.includes(searchTerm)) {
+        if(post.title.includes(searchTerm) || post.description.includes(searchTerm)) {
             return true;
         } else {
             return false;
