@@ -4,9 +4,9 @@ import { getPosts, createMessages } from './api';
 const PostList = (props) => {
     
     const {posts, setPosts} = props;
-    const [isLoggedIn,setIsLoggedIn] = useState(false);
+    const {isLoggedIn} = props;
 
-    
+    console.log("author",posts)
     
     useEffect(async () => {
         const posts = await getPosts();
@@ -15,23 +15,23 @@ const PostList = (props) => {
     }, []);
 
     
-    
-        
-
     return (
         
        <div>
             {posts.map(post =>
                 <div key={post.id}>
                     <h2>{post.title}</h2>
-                    <p>{post.description}</p>
-                   
-                   <SendMessage isLoggedIn = {isLoggedIn} setIsLoggedIn = {setIsLoggedIn}  post = {post}/>
-            </div>)}
+                    <p> Description : {post.description}</p>
+                    <p> Price : {post.price}</p>
+                    <p> WillDeliver : {post.willDeliver ? "true" : "false"}</p>
+                   {/* // Ternary operator for isLoggedIn and not is author of the post then show messages */}
+                 {(!(post.isAuthor))? <SendMessage post = {post}/> : null}
+            </div>)} 
         </div>
 
     );
 };
+
 
 
 

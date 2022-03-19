@@ -11,10 +11,13 @@ import Header from './Header';
 import Home from './Home';
 import { testAuthentication } from './api';
 import MyPosts from './MyPosts';
+import AboutMe from './AboutMe';
 
 
 const App = () => {
-	const [isLoggedIn,setIsLoggedIn] = useState(false);
+	let [isLoggedIn,setIsLoggedIn] = useState(false);
+	
+	
 
 	async function isValidJWT() {
 		const token = localStorage.getItem("stranger_things_JWT");
@@ -22,6 +25,7 @@ const App = () => {
 		else {
 		const isValid = await testAuthentication();
 		setIsLoggedIn(isValid);
+		isLoggedIn = true
 		// setIsLoggedIn(true);
 		
 		}
@@ -46,6 +50,9 @@ const App = () => {
 			<BrowserRouter>
 
 			
+			{<Route path = "/messages"><AboutMe isLoggedIn = {isLoggedIn} setIsLoggedIn = {setIsLoggedIn}/>
+				</Route>}
+			
 				{isLoggedIn && <><Route path ="/home">
 					<Home isLoggedIn = {isLoggedIn} setIsLoggedIn = {setIsLoggedIn}/>
 					</Route>
@@ -58,7 +65,10 @@ const App = () => {
 				</div>
 
 				{!isLoggedIn && <Route path="/login">
+					<>
 					<Login isLoggedIn = {isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>
+					
+					</>
 					
 				</Route> }
 
@@ -79,7 +89,7 @@ const App = () => {
 
 				
 
-				{isLoggedIn ? <><Link to = "/logout" onClick={handleLogout}>Logout</Link> <Link to ="/posts">Posts</Link> <Link to = "/myposts">My Posts</Link><Link to = "/home">Home</Link> </>: <><Link to="/register">Register</Link><Link to="/login">Login</Link><Link to ="/posts">Posts</Link></>}
+				{isLoggedIn ? <><Link to = "/logout" onClick={handleLogout}>Logout</Link> <Link to ="/posts">Posts</Link> <Link to = "/myposts">My Posts</Link><Link to = "/home">Home</Link> <Link to ="/messages">Messages</Link> </> : <><Link to="/register">Register</Link><Link to="/login">Login</Link><Link to ="/posts">Posts</Link> </>}
 
 				
 			</BrowserRouter>

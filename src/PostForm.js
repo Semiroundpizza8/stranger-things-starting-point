@@ -69,15 +69,6 @@ const PostForm = (props) => {
        <button onClick={handlePostButtonClick}>
         Make Post Request!
       </button>
-
-     
-        
-        
-      
-     
-     
-      
-
     </div>
   );
 };
