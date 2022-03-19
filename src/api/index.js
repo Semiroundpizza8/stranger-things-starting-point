@@ -15,6 +15,12 @@ export const getPosts = async () => {
 
 
 export const createNewPost = async (newPost) => {
+
+    const newPost = {
+        title: "New Post Being Made",
+        body: "Hi! I'm a nu post"
+    };
+
     const url = 'https://jsonplaceholder.typicode.com/posts/';
     const response = await fetch(url, {
         method: "POST",
