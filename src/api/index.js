@@ -4,8 +4,20 @@ const baseUrl = 'https://strangers-things.herokuapp.com/api/2112-FTW-ET-WEB-PT';
 const postUrl = 'https://strangers-things.herokuapp.com/api/2112-FTW-ET-WEB-PT/posts';
 
 export const getPosts = async () => {
+    const token = localStorage.getItem('UserToken');
+    let response;
     try{
-    const response = await fetch(postUrl)
+        if (token){
+        response = await fetch(postUrl, {
+            method: "GET",
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer '+token
+            }})
+
+    }else {
+        response = await fetch(postUrl);
+    }
     const returnedPost = await response.json()
     return returnedPost;
 } catch(error){
@@ -98,12 +110,14 @@ export const createNewPost = async (postObject) => {
 
 export const updateNewPost = async (postId, newPost) => {
     const url = `${baseUrl}/posts/${postId}`;
+    const token = localStorage.getItem('UserToken')
     const response = await fetch(url, {
         method: "PATCH",
         headers: {
-            'Content-Type': "application/json"
+            'Content-Type': "application/json",
+            "Authorization": 'Bearer ' + token
         },
-        body: Json.stringify(newPost)
+        body: json.stringify(newPost)
     });
     const json = await response.json();
     console.log(json);
