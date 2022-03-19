@@ -1,5 +1,6 @@
 #app {
-    display: grid;
+    display: flex;
+    flex-direction: column;
     background-color: rgb(255, 166, 0);
     font-size: medium;
     border: blue;
@@ -29,15 +30,15 @@ padding: 3%;
 
 #Register {
     display: flex;
-    flex-direction: column;
+    flex-direction: column; 
     justify-content: space-between;
     padding-left: 50px;
 
 }
 
 #Login-container {
-    display: flex;
-    flex-direction: column;
+ display: flex;
+    flex-direction: column; 
     justify-content: space-between;
     padding-left: 40px;
     margin: 20px;
@@ -46,7 +47,7 @@ padding: 3%;
 
 label {
     display: flex;
-    flex-direction: column;
+    flex-direction: column; 
     justify-content: space-between;
     font-size: large;
     padding-top: 10px;
@@ -67,9 +68,9 @@ label {
 }
 
 #LogOut {
-    display: flex;
+    /* display: flex;
     flex-direction: row;
-    justify-content: end;
+    justify-content: end; */
 
 }
 

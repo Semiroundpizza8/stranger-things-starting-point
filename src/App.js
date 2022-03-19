@@ -16,11 +16,11 @@ const App = (props) => {
   const { name } = props;
   return (
     <>
-      <Main name = {name} />
+      <Main/>
       <h1 className="welcome"  >Welcome, {name}</h1>
-      
       <PostList />
       <PostForm />
+      
     </>
   );
 };
@@ -30,7 +30,9 @@ const Main = () => {
   const [loggedIn, setLoggedIn] = useState(false);
 //   useEffect(() => { setIsLoggedIn(!!localStorage.getItem("stranger_things_JWT");
 // }, []);
+<>
 
+</>
   return (
     <BrowserRouter>
       <div id="Container"> 
@@ -55,6 +57,10 @@ const Main = () => {
         <Route path = "/login">
          { <Login setLoggedIn={setLoggedIn} loggedIn={loggedIn}/> }
          {loggedIn }
+        </Route>
+
+        <Route path = "/posts">
+        <PostList />
         </Route>
 
         

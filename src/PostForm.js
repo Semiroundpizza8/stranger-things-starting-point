@@ -31,11 +31,11 @@ const PostForm =  (props) => {
             setWillDeliver(false);
         
         const postObject = {
-                title: title,
-                description: description,
-                price: price,
-                location: location,
-                willDeliver: willDeliver
+                title: posts.data.posts.title,
+                description: posts.data.posts.description,
+                price: posts.data.posts.price,
+                location: posts.data.posts.location,
+                willDeliver: posts.data.posts.willDeliver
             
         }
 

@@ -97,14 +97,7 @@ export const createNewPost = async (postObject) => {
     const json = await response.json();
     console.log(json)
 
-    // TOKEN : json.data.token
-    if(json.data === null){
-        return false;
-    }
-    else {
-       localStorage.setItem('UserToken', json.data.token);
-       return true;
-    }
+    
 }
 
 
