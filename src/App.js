@@ -6,8 +6,13 @@ import Login from "./Login";
 import RegisterLogin from "./RegisterLogin";
 import { BrowserRouter, Route, Link, Switch } from "react-router-dom";
 import PostForm from "./PostForm";
+<<<<<<< HEAD
+import { getMe } from "./api";
+import Profile from "./Profile";
+=======
 import UpdateForms from "./UpdateForms";
 
+>>>>>>> da84a51cabb4f5da204546ea9d34b47c0b0397af
 
 
 
@@ -34,10 +39,17 @@ const App = () => {
       
         <div className="Navbar">
           <h2>Stranger Things</h2>
+<<<<<<< HEAD
+          
+          <Link to= "/register">Sign Up </Link>
+          <Link to= "/login">Login</Link>
+          <Link to= "/profile">Profile</Link>
+=======
 
           <Link to= "/register">Sign Up </Link>
           <Link to= "/login">Login</Link>
     
+>>>>>>> da84a51cabb4f5da204546ea9d34b47c0b0397af
           
               
         </div>
@@ -59,7 +71,9 @@ const App = () => {
         <PostList posts={posts} setPosts={setPosts}/>
         </Route>
 
-        
+        {<Route path= "/profile">
+          <Profile setLoggedIn={setLoggedIn} loggedIn={loggedIn}/>
+        </Route> }        
 
       </Switch>
       </div>

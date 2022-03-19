@@ -36,98 +36,10 @@ const PostForm =  (props) => {
         }
 
 
-        // {
-        //     "success": true,
-        //     "error": null,
-        //     "data": {
-        //         "posts": [
-        //             {
-        //                 "location": "[On Request]",
-        //                 "willDeliver": true,
-        //                 "messages": [],
-        //                 "active": true,
-        //                 "_id": "622cba014baa4c00178ca766",
-        //                 "author": {
-        //                     "_id": "622cba014baa4c00178ca763",
-        //                     "username": "jane1234"
-        //                 },
-        //                 "cohort": "622cba014baa4c00178ca761",
-        //                 "title": "Golden Retriever puppies",
-        //                 "description": "Not looking for any money, just want to find a good home for these four beautiful pups.",
-        //                 "price": "free",
-        //                 "createdAt": "2022-03-12T15:19:29.543Z",
-        //                 "updatedAt": "2022-03-12T15:19:29.609Z",
-        //                 "__v": 0,
-        //                 "isAuthor": false
-        //             },
-        //             {
-        //                 "location": "[On Request]",
-        //                 "willDeliver": false,
-        //                 "messages": [],
-        //                 "active": true,
-        //                 "_id": "622cba014baa4c00178ca765",
-        //                 "author": {
-        //                     "_id": "622cba014baa4c00178ca762",
-        //                     "username": "joe1234"
-        //                 },
-        //                 "cohort": "622cba014baa4c00178ca761",
-        //                 "title": "Practically new Stradivarius",
-        //                 "description": "I've really only used this three or four times.  I thought it would be a good purchase, shows what I know.",
-        //                 "price": "$14.3 million",
-        //                 "createdAt": "2022-03-12T15:19:29.543Z",
-        //                 "updatedAt": "2022-03-12T15:19:29.603Z",
-        //                 "__v": 0,
-        //                 "isAuthor": false
-        //             },
-        //             {
-        //                 "location": "Ames, IA",
-        //                 "willDeliver": true,
-        //                 "messages": [],
-        //                 "active": true,
-        //                 "_id": "622cba014baa4c00178ca767",
-        //                 "author": {
-        //                     "_id": "622cba014baa4c00178ca764",
-        //                     "username": "caesar1234"
-        //                 },
-        //                 "cohort": "622cba014baa4c00178ca761",
-        //                 "title": "NordicTrack Freestrider Elliptical Trainer",
-        //                 "description": "To be honest, it is more amazing than my resolve.",
-        //                 "price": "$1400, OBO",
-        //                 "createdAt": "2022-03-12T15:19:29.543Z",
-        //                 "updatedAt": "2022-03-12T15:19:29.614Z",
-        //                 "__v": 0,
-        //                 "isAuthor": false
-        //             },
-        //             {
-        //                 "location": "[On Request]",
-        //                 "willDeliver": true,
-        //                 "messages": [],
-        //                 "active": true,
-        //                 "_id": "623287689c03eb0017b986d9",
-        //                 "title": "New Post",
-        //                 "description": "undefined",
-        //                 "price": "undefined",
-        //                 "author": {
-        //                     "_id": "622ff0a37b4f410017da1877",
-        //                     "username": "apples"
-        //                 },
-        //                 "cohort": "622cba014baa4c00178ca761",
-        //                 "createdAt": "2022-03-17T00:57:12.229Z",
-        //                 "updatedAt": "2022-03-17T00:57:12.229Z",
-        //                 "__v": 0,
-        //                 "isAuthor": false
-        //             }
-        //         ]
-        //     }
-        // }
-
 
         const sendPost = await createNewPost(postObject);
         
         
-        //i really doubt this might work. Should I pull the posts array, 
-        //check for the last index, and create an additional object to add that will contain
-        //the information entered and the info of the person logged in? Is there an easier route?
         setPosts([...posts, sendPost.data.post]);
 
         setTitle('');

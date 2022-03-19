@@ -124,20 +124,36 @@ export const updateNewPost = async (postId, newPost) => {
     return json;
 };
 
-
 export const deletePost = async (postId) => {
     const url = `${baseUrl}/posts/${postId}`;
     
     const response = await fetch(url, {
         method: "DELETE"
     });
-
-    const json = await response.json();
-    return json
-    
-
 }
-  
 
+export const getMe = async () => {
+    // URL that we're gonna reach out to
+    try {
+    const url = `${baseUrl}/me`;
+    console.log(url);
+const token = localStorage.getItem('UserToken')
+    // Grab the body given back by the API
+    const response = await fetch(url, {
+        method: "GET",
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer '+token
+        },
+    });
 
+    console.log("this is the response to create a post", response)
 
+    // Take the body we got back and convert it to JS Object
+    const json = await response.json();
+    console.log(json)
+    return json;
+} catch(error){ 
+    console.error("this is my getMe error!", error)
+}  
+}
