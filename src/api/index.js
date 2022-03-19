@@ -15,19 +15,7 @@ export const getPosts = async () => {
 
 } 
 
-export const createNewPost = async (newPost) => {
-    const URL = `${baseUrl}/posts`;
-    const response = await fetch(URL, {
-        method: "POST",
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': json.data.token
-        },
-        body: JSON.stringify(newPost)
-    });
-    const createdPost = await response.json();
-    return createdPost;
-}
+
 
 
 
@@ -89,7 +77,39 @@ export const registerUser = async (userObject) => {
 }
 
 
+export const createNewPost = async (postObject) => {
+    // URL that we're gonna reach out to
+    const url = `${baseUrl}/posts`;
+    console.log(url);
 
+    // Grab the body given back by the API
+    const response = await fetch(url, {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(postObject)
+    });
+
+    console.log("this is the response to create a post", response)
+
+    // Take the body we got back and convert it to JS Object
+    const json = await response.json();
+    console.log(json)
+
+    // TOKEN : json.data.token
+    if(json.data === null){
+        return false;
+    }
+    else {
+       localStorage.setItem('UserToken', json.data.token);
+       return true;
+    }
+}
+
+
+
+  
 
 
 

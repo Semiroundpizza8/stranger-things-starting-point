@@ -16,8 +16,8 @@ const App = (props) => {
   const { name } = props;
   return (
     <>
-      <Main />
-      <h1 className="welcome">Welcome, {name}</h1>
+      <Main name = {name} />
+      <h1 className="welcome"  >Welcome, {name}</h1>
       
       <PostList />
       <PostForm />
