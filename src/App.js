@@ -13,12 +13,11 @@ import PostForm from "./PostForm";
 const App = (props) => {
   
 
-  const { name } = props;
+  
   return (
     <>
       <Main/>
-      <h1 className="welcome"  >Welcome, {name}</h1>
-      <PostList />
+      
       <PostForm />
       
     </>
@@ -26,14 +25,16 @@ const App = (props) => {
 };
 
 
-const Main = () => {
+const Main = (props) => {
   const [loggedIn, setLoggedIn] = useState(false);
+  const { name } = props;
 //   useEffect(() => { setIsLoggedIn(!!localStorage.getItem("stranger_things_JWT");
 // }, []);
-<>
 
-</>
   return (
+    <>
+      
+      
     <BrowserRouter>
       <div id="Container"> 
       
@@ -42,11 +43,13 @@ const Main = () => {
           {/* set up a ternary that shows SIGN UP AND LOGIN if loggedIn = false */}
           <Link to= "/register">Sign Up </Link>
           <Link to= "/login">Login</Link>
+      
           
           {/* if loggedIn is TRUE, display link to sign out */}
               
         </div>
-
+        <h1 className="welcome"  >Welcome, {name}</h1>
+        <PostList />
     <Switch>
      
         {<Route path= "/register">
@@ -67,7 +70,7 @@ const Main = () => {
 
       </Switch>
       </div>
-      </BrowserRouter>
+      </BrowserRouter></>
   )
 }
 

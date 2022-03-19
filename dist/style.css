@@ -1,11 +1,16 @@
 #app {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     background-color: rgb(255, 166, 0);
     font-size: medium;
     border: blue;
     padding: 5%;
     margin: 10%;
+}
+
+#main {
+    display: flex;
+    flex-direction: column;
 }
 
 .welcome {
@@ -35,6 +40,14 @@ padding: 3%;
     padding-left: 50px;
 
 }
+
+#PostForm {
+    border: black;
+    margin: 5%;
+    padding: 5%;
+    background-color: blanchedalmond;
+}
+
 
 #Login-container {
  display: flex;
