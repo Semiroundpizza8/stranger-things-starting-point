@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import { getMe } from "./api"; 
 
 
@@ -23,7 +23,7 @@ const Profile =  (props) => {
     
     const {loggedIn} = props
 
-    const [hasTriggeredError, setHasTriggeredError] = useState(false);
+
    
 
     useEffect(async () => {

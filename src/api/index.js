@@ -29,11 +29,10 @@ export const login = async (userObject) => {
         },
         body: JSON.stringify(userObject)
       });
-      console.log("this is the response", response)
+    
 
       const json = await response.json();
-      console.log(json)
-
+      
       if(json.data === null){
           return false;
       }
@@ -49,8 +48,6 @@ export const login = async (userObject) => {
 export const registerUser = async (userObject) => {
     // URL that we're gonna reach out to
     const url = `${baseUrl}/users/register`;
-    console.log(url);
-
     // Grab the body given back by the API
     const response = await fetch(url, {
         method: "POST",
@@ -60,11 +57,9 @@ export const registerUser = async (userObject) => {
         body: JSON.stringify(userObject)
     });
 
-    console.log("this is the response", response)
 
     // Take the body we got back and convert it to JS Object
     const json = await response.json();
-    console.log(json)
 
     // TOKEN : json.data.token
     if(json.data === null){
@@ -81,8 +76,7 @@ export const createNewPost = async (postObject) => {
     // URL that we're gonna reach out to
     try {
     const url = `${baseUrl}/posts`;
-    console.log(url);
-const token = localStorage.getItem('UserToken')
+    const token = localStorage.getItem('UserToken')
     // Grab the body given back by the API
     const response = await fetch(url, {
         method: "POST",
@@ -93,22 +87,36 @@ const token = localStorage.getItem('UserToken')
         body: JSON.stringify({post: postObject})
     });
 
-    console.log("this is the response to create a post", response)
-
     // Take the body we got back and convert it to JS Object
     const json = await response.json();
-    console.log(json)
     return json;
-} catch(error){ 
-    console.error("this is my create post error!", error)
-}  
+    } catch(error){ 
+        console.error("this is my create post error!", error)
+    }  
 
-
-    
 }
 
+export const updateNewPost = async (postId, newPost) => {
+    const url = `${baseUrl}/posts/${postId}`;
+    const response = await fetch(url, {
+        method: "PATCH",
+        headers: {
+            'Content-Type': "application/json"
+        },
+        body: Json.stringify(newPost)
+    });
+    const json = await response.json();
+    console.log(json);
+    return json;
+};
 
-
+export const deletePost = async (postId) => {
+    const url = `${baseUrl}/posts/${postId}`;
+    
+    const response = await fetch(url, {
+        method: "DELETE"
+    });
+}
 
 export const getMe = async () => {
     // URL that we're gonna reach out to
@@ -134,9 +142,4 @@ const token = localStorage.getItem('UserToken')
 } catch(error){ 
     console.error("this is my getMe error!", error)
 }  
-
 }
-  
-
-
-
