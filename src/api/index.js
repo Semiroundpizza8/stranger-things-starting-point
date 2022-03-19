@@ -79,16 +79,18 @@ export const registerUser = async (userObject) => {
 
 export const createNewPost = async (postObject) => {
     // URL that we're gonna reach out to
+    try {
     const url = `${baseUrl}/posts`;
     console.log(url);
-
+const token = localStorage.getItem('UserToken')
     // Grab the body given back by the API
     const response = await fetch(url, {
         method: "POST",
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer '+token
         },
-        body: JSON.stringify(postObject)
+        body: JSON.stringify({post: postObject})
     });
 
     console.log("this is the response to create a post", response)
@@ -96,6 +98,11 @@ export const createNewPost = async (postObject) => {
     // Take the body we got back and convert it to JS Object
     const json = await response.json();
     console.log(json)
+    return json;
+} catch(error){ 
+    console.error("this is my create post error!", error)
+}  
+
 
     
 }

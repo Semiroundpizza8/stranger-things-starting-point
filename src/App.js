@@ -1,5 +1,5 @@
 
-import React, { useState }from "react";
+import React, { useState, useEffect }from "react";
 import { hot } from 'react-hot-loader/root';
 import PostList from "./PostList";
 import Login from "./Login";
@@ -11,14 +11,14 @@ import PostForm from "./PostForm";
 
 
 const App = () => {
-  
-
+  const [posts, setPosts] = useState([]);
+  const [loggedIn, setLoggedIn] = useState(false);
   
   return (
     <>
-      <Main/>
+      <Main posts={posts} setPosts={setPosts} loggedIn={loggedIn} setLoggedIn={setLoggedIn}/>
       
-      <PostForm />
+      <PostForm posts={posts} setPosts={setPosts} loggedIn= {loggedIn}/>
       
     </>
   );
@@ -26,10 +26,17 @@ const App = () => {
 
 
 const Main = (props) => {
-  const [loggedIn, setLoggedIn] = useState(false);
-  const { name } = props;
-//   useEffect(() => { setIsLoggedIn(!!localStorage.getItem("stranger_things_JWT");
-// }, []);
+ const {loggedIn, setLoggedIn} = props
+  const [userData, setUserData] = useState ({});
+ 
+  useEffect(() => { setLoggedIn(!!localStorage.getItem("UserToken"))
+ }, []);
+
+ //creategetMe function that takes data once user is logged in - populate prrofile, etc.
+
+useEffect(async ()=> {const user = await getMe()
+  setUserData(user);
+}, [loggedIn])
 
   return (
     <>
@@ -48,8 +55,8 @@ const Main = (props) => {
           {/* if loggedIn is TRUE, display link to sign out */}
               
         </div>
-        <h1 className="welcome"  >Welcome, {name}</h1>
-        <PostList />
+        <h1 className="welcome"  >Welcome, {userData.username}</h1>
+        <PostList posts={props.posts} setPosts={props.setPosts}/>
     <Switch>
      
         {<Route path= "/register">

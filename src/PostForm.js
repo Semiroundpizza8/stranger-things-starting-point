@@ -24,18 +24,14 @@ const PostForm =  (props) => {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-            setTitle('');
-            setDescription('');
-            setPrice('');
-            setLocation('');
-            setWillDeliver(false);
+            
         
         const postObject = {
-                title: posts.data.posts.title,
-                description: posts.data.posts.description,
-                price: posts.data.posts.price,
-                location: posts.data.posts.location,
-                willDeliver: posts.data.posts.willDeliver
+                title: title,
+                description: description,
+                price: price,
+                location: location,
+                willDeliver: willDeliver
             
         }
 
@@ -128,11 +124,18 @@ const PostForm =  (props) => {
 
 console.log(postObject);
         const sendPost = await createNewPost(postObject);
+        console.log("this is sendPost in PostForm", sendPost.data.post)
         
         //i really doubt this might work. Should I pull the posts array, 
         //check for the last index, and create an additional object to add that will contain
         //the information entered and the info of the person logged in? Is there an easier route?
-        setPosts(...posts, sendPost);
+        setPosts([...posts, sendPost.data.post]);
+
+        setTitle('');
+            setDescription('');
+            setPrice('');
+            setLocation('');
+            setWillDeliver(false);
     }
 
     
@@ -146,7 +149,7 @@ console.log(postObject);
 
     return (
         <div id='PostForm'>
-            {!loggedIn ? 
+            {loggedIn ? 
             <>
             <form onSubmit={handleSubmit}>
             <label htmlFor='title'>Title</label>
@@ -165,6 +168,7 @@ console.log(postObject);
             <p>Register or login to create a post!</p>}
         </div>
     )
+
 }
 
 
