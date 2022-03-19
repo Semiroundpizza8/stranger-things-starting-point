@@ -12,6 +12,7 @@ import Home from './Home';
 import { testAuthentication } from './api';
 import MyPosts from './MyPosts';
 import AboutMe from './AboutMe';
+import SearchForm from './SearchForm';
 
 
 const App = () => {
@@ -52,6 +53,11 @@ const App = () => {
 			
 			{<Route path = "/messages"><AboutMe isLoggedIn = {isLoggedIn} setIsLoggedIn = {setIsLoggedIn}/>
 				</Route>}
+
+				{<Route path = "/search"><SearchForm posts = {posts} setPosts = {setPosts} />
+				</Route>}
+
+
 			
 				{isLoggedIn && <><Route path ="/home">
 					<Home isLoggedIn = {isLoggedIn} setIsLoggedIn = {setIsLoggedIn}/>
@@ -89,7 +95,7 @@ const App = () => {
 
 				
 
-				{isLoggedIn ? <><Link to = "/logout" onClick={handleLogout}>Logout</Link> <Link to ="/posts">Posts</Link> <Link to = "/myposts">My Posts</Link><Link to = "/home">Home</Link> <Link to ="/messages">Messages</Link> </> : <><Link to="/register">Register</Link><Link to="/login">Login</Link><Link to ="/posts">Posts</Link> </>}
+				{isLoggedIn ? <><Link to = "/logout" onClick={handleLogout}>Logout</Link> <Link to ="/posts">Posts</Link> <Link to = "/myposts">My Posts</Link><Link to = "/home">Home</Link> <Link to ="/messages">Messages</Link> <Link to ="/search">Search</Link> </> : <><Link to="/register">Register</Link><Link to="/login">Login</Link><Link to ="/posts">Posts</Link> <Link to ="/search">Search</Link> </>}
 
 				
 			</BrowserRouter>

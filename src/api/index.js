@@ -156,7 +156,7 @@ export const loginUser = async (userObject) => {
 
     // TOKEN : json.data.token
      localStorage.setItem('stranger_things_login', json.data.token);
-
+     localStorage.getItem('stranger_things_JWT')
     return json;
 }; 
 

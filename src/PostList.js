@@ -4,7 +4,7 @@ import { getPosts, createMessages } from './api';
 const PostList = (props) => {
     
     const {posts, setPosts} = props;
-    const {isLoggedIn} = props;
+    // const {isLoggedIn} = props;
 
     console.log("author",posts)
     
