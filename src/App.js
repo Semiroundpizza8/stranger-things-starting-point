@@ -6,8 +6,13 @@ import Login from "./Login";
 import RegisterLogin from "./RegisterLogin";
 import { BrowserRouter, Route, Link, Switch } from "react-router-dom";
 import PostForm from "./PostForm";
+<<<<<<< HEAD
 import { getMe } from "./api";
 import Profile from "./Profile";
+=======
+import UpdateForms from "./UpdateForms";
+
+>>>>>>> da84a51cabb4f5da204546ea9d34b47c0b0397af
 
 
 
@@ -15,63 +20,55 @@ import Profile from "./Profile";
 const App = () => {
   const [posts, setPosts] = useState([]);
   const [loggedIn, setLoggedIn] = useState(false);
+  const [userData, setUserData] = useState ({});
+
+  useEffect(() => { setLoggedIn(!!localStorage.getItem("UserToken"))
+}, []);
+
+//creategetMe function that takes data once user is logged in - populate prrofile, etc.
+
+// useEffect(async ()=> {const user = await getMe()
+//  setUserData(user);
+// }, [loggedIn])
   
   return (
     <>
-      <Main posts={posts} setPosts={setPosts} loggedIn={loggedIn} setLoggedIn={setLoggedIn}/>
-      
-      <PostForm posts={posts} setPosts={setPosts} loggedIn= {loggedIn}/>
-      
-    </>
-  );
-};
-
-
-const Main = (props) => {
- const {loggedIn, setLoggedIn} = props
-  const [userData, setUserData] = useState ({});
- 
-  useEffect(() => { setLoggedIn(!!localStorage.getItem("UserToken"))
- }, []);
-
- //creategetMe function that takes data once user is logged in - populate prrofile, etc.
-
-useEffect(async ()=> {const user = await getMe()
-  setUserData(user);
-}, [loggedIn])
-
-  return (
-    <>
-      
-      
+      {/* <Main posts={posts} setPosts={setPosts} loggedIn={loggedIn} setLoggedIn={setLoggedIn}/> */}  
     <BrowserRouter>
       <div id="Container"> 
       
         <div className="Navbar">
           <h2>Stranger Things</h2>
+<<<<<<< HEAD
           
           <Link to= "/register">Sign Up </Link>
           <Link to= "/login">Login</Link>
           <Link to= "/profile">Profile</Link>
+=======
+
+          <Link to= "/register">Sign Up </Link>
+          <Link to= "/login">Login</Link>
+    
+>>>>>>> da84a51cabb4f5da204546ea9d34b47c0b0397af
           
               
         </div>
         <h1 className="welcome"  >Welcome, {userData.username}</h1>
-        <PostList posts={props.posts} setPosts={props.setPosts}/>
+        <PostList posts={posts} setPosts={setPosts} loggedIn={loggedIn}/>
     <Switch>
      
-        {<Route path= "/register">
+        <Route path= "/register">
           <RegisterLogin setLoggedIn={setLoggedIn} loggedIn={loggedIn}/>
           {loggedIn }
-        </Route> }
+        </Route>
 
         <Route path = "/login">
-         { <Login setLoggedIn={setLoggedIn} loggedIn={loggedIn}/> }
+         <Login setLoggedIn={setLoggedIn} loggedIn={loggedIn}/> 
          {loggedIn }
         </Route>
 
-        <Route path = "/posts">
-        <PostList />
+        <Route exact path = "/posts">
+        <PostList posts={posts} setPosts={setPosts}/>
         </Route>
 
         {<Route path= "/profile">
@@ -80,8 +77,9 @@ useEffect(async ()=> {const user = await getMe()
 
       </Switch>
       </div>
-      </BrowserRouter></>
-  )
-}
+      </BrowserRouter>
+      <PostForm posts={posts} setPosts={setPosts} loggedIn= {loggedIn}/>
+      </>
+  )}
 
 export default hot(App);

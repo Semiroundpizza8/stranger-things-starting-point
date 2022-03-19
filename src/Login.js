@@ -40,7 +40,7 @@ const Login = (props) => {
     const logOut =  () => {
         localStorage.removeItem("UserToken");
         setLoggedIn(false);
-        console.log("here we are")
+       
       }
      
 
@@ -49,7 +49,6 @@ const Login = (props) => {
     const handlePasswordChange = (event) => setPassword(event.target.value)
 
     if (hasTriggeredError) return <p style={{ color: 'red' }}> Whoopse, looks like you need to fix something! </p>
-console.log(loggedIn)
     return (
         <div id='Login-container'>
             {!loggedIn? <>
