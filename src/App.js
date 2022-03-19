@@ -6,6 +6,8 @@ import Login from "./Login";
 import RegisterLogin from "./RegisterLogin";
 import { BrowserRouter, Route, Link, Switch } from "react-router-dom";
 import PostForm from "./PostForm";
+import { getMe } from "./api";
+import Profile from "./Profile";
 
 
 
@@ -50,6 +52,7 @@ useEffect(async ()=> {const user = await getMe()
           {/* set up a ternary that shows SIGN UP AND LOGIN if loggedIn = false */}
           <Link to= "/register">Sign Up </Link>
           <Link to= "/login">Login</Link>
+          <Link to= "/profile">Profile</Link>
       
           
           {/* if loggedIn is TRUE, display link to sign out */}
@@ -73,7 +76,9 @@ useEffect(async ()=> {const user = await getMe()
         <PostList />
         </Route>
 
-        
+        {<Route path= "/profile">
+          <Profile setLoggedIn={setLoggedIn} loggedIn={loggedIn}/>
+        </Route> }        
 
       </Switch>
       </div>
