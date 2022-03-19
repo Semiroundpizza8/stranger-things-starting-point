@@ -14,7 +14,6 @@ const RegisterLogin = (props) => {
     const logOut =  () => {
         localStorage.removeItem("UserToken");
         setLoggedIn(false);
-        console.log("here we are")
       }
 
     const handleSubmit = async (event) => {

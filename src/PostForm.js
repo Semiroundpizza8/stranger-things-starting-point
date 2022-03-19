@@ -122,9 +122,8 @@ const PostForm =  (props) => {
         // }
 
 
-console.log(postObject);
         const sendPost = await createNewPost(postObject);
-        console.log("this is sendPost in PostForm", sendPost.data.post)
+        
         
         //i really doubt this might work. Should I pull the posts array, 
         //check for the last index, and create an additional object to add that will contain

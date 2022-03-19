@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { getPosts } from './api';
 
 const PostList = (props) => {
@@ -6,7 +6,6 @@ const PostList = (props) => {
 
     useEffect(async () => {
         const posts = await getPosts();
-        console.log(posts)
         setPosts(posts.data.posts);
     }, []);
 
