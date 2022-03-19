@@ -13,9 +13,6 @@ const PostForm = (props) => {
   
   const {posts, setPosts} = props;
   
-  
-
-
   const handlePostButtonClick = async () => {
     console.log("Making a post request...");
     const dummyBody = {

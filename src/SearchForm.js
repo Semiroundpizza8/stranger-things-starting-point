@@ -52,7 +52,7 @@ const handleSearch = (event) => {
             {filteredPosts && filteredPosts.map((post) => (
                <> 
                 <li key={post.id}>{post.title}</li>
-                <li key  = {post.id}>{post.description}</li> 
+                <li key={post.id}>{post.description}</li> 
                 </> 
             ))}
         </ul>

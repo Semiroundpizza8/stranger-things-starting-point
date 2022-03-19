@@ -16,8 +16,8 @@ import SearchForm from './SearchForm';
 
 
 const App = () => {
-	let [isLoggedIn,setIsLoggedIn] = useState(false);
-	
+	const [isLoggedIn,setIsLoggedIn] = useState(false);
+	const [posts, setPosts] = useState([]);
 	
 
 	async function isValidJWT() {
@@ -26,8 +26,6 @@ const App = () => {
 		else {
 		const isValid = await testAuthentication();
 		setIsLoggedIn(isValid);
-		isLoggedIn = true
-		// setIsLoggedIn(true);
 		
 		}
 		console.log("isLoggedIn",isLoggedIn);
@@ -37,7 +35,7 @@ const App = () => {
 		isValidJWT();
 	}, []);
 
-	const [posts, setPosts] = useState([]);
+	
 	const handleLogout = () => {
     
 		logOutUser();

@@ -41,8 +41,15 @@ const styles = {
     postFormStyle:{
         margin: '0 auto',
         marginTop: '10px'
-    }
+    },
 
+    updateStyle:{
+        margin:'0 auto',
+        marginTop: '10px',
+        display:'flex',
+        flexDirection:'column',
+        
+    }
 
 };
 

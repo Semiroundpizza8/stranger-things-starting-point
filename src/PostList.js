@@ -24,6 +24,7 @@ const PostList = (props) => {
                     <p> Description : {post.description}</p>
                     <p> Price : {post.price}</p>
                     <p> WillDeliver : {post.willDeliver ? "true" : "false"}</p>
+                    
                    {/* // Ternary operator for isLoggedIn and not is author of the post then show messages */}
                  {(!(post.isAuthor))? <SendMessage post = {post}/> : null}
             </div>)} 

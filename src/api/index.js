@@ -1,6 +1,6 @@
 const baseUrl = 'https://strangers-things.herokuapp.com';
 export const getPosts = async () => {
-    const token = localStorage.getItem('stranger_things_login')
+    const token = localStorage.getItem('stranger_things_JWT')
     console.log(token);
 	// URL that we're gonna reach out to
 	const url = `${baseUrl}/api/2112-FTB-ET-WEB-PT/posts`;
@@ -25,6 +25,7 @@ export const getPosts = async () => {
 export const createNewPost = async (newPost) => {
 	const url = `${baseUrl}/api/2112-FTB-ET-WEB-PT/posts`;
     const token = localStorage.getItem('stranger_things_login')
+    console.log(token);
 	const response = await fetch(url, {
 		method: 'POST',
 		headers: {
@@ -40,14 +41,17 @@ export const createNewPost = async (newPost) => {
 	return json;
 };
 
-export const updateNewPost = async (newPost) => {
-	const url = 'https://jsonplaceholder.typicode.com/posts/';
+export const updateNewPost = async (newPost,postId) => {
+	const url = `${baseUrl}/api/2112-FTB-ET-WEB-PT/posts/${postId}`;
+    const token = localStorage.getItem('stranger_things_JWT')
 	const response = await fetch(url, {
 		method: 'PATCH',
+        
 		headers: {
-			'Content-Type': 'application/json'
+			'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`,
 		},
-		body: JSON.stringify(newPost)
+		body: JSON.stringify({post:newPost})
 	});
 
 	const json = await response.json();
@@ -57,9 +61,15 @@ export const updateNewPost = async (newPost) => {
 
 export const deletePostById = async (postId) => {
     const url = `${baseUrl}/api/2112-FTB-ET-WEB-PT/posts/${postId}`;
+    const token = localStorage.getItem('stranger_things_JWT')
+
 
     const response = await fetch(url, {
-        method: "DELETE"
+        method: "DELETE",
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`,
+          }
     });
 
     const json = await response.json();
@@ -70,7 +80,8 @@ export const deletePostById = async (postId) => {
 
 export const createMessages = async (postId,content) => {
 	const url = `${baseUrl}/api/2112-FTB-ET-WEB-PT/posts/${postId}/messages`;
-    const token = localStorage.getItem('stranger_things_login')
+    const token = localStorage.getItem('stranger_things_JWT')
+    
 	const response = await fetch(url, {
 		method: 'POST',
 		headers: {
@@ -169,7 +180,7 @@ localStorage.removeItem('stranger_things_login');
 export const aboutMe = async () => {
 	// URL that we're gonna reach out to
 	const url =  `${baseUrl}/api/2112-FTB-ET-WEB-PT/users/me`;
-    const token = localStorage.getItem('stranger_things_login')
+    const token = localStorage.getItem('stranger_things_JWT')
     
     // Grab the body given back by the API
     const response = await fetch(url, {
