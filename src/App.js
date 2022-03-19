@@ -60,13 +60,13 @@ useEffect(async ()=> {const user = await getMe()
         <PostList posts={props.posts} setPosts={props.setPosts}/>
     <Switch>
      
-        {<Route path= "/register">
+        <Route path= "/register">
           <RegisterLogin setLoggedIn={setLoggedIn} loggedIn={loggedIn}/>
           {loggedIn }
-        </Route> }
+        </Route> 
 
         <Route path = "/login">
-         { <Login setLoggedIn={setLoggedIn} loggedIn={loggedIn}/> }
+         <Login setLoggedIn={setLoggedIn} loggedIn={loggedIn}/> 
          {loggedIn }
         </Route>
 
@@ -74,9 +74,9 @@ useEffect(async ()=> {const user = await getMe()
         <PostList />
         </Route>
 
-        {<Route path= "/profile">
-          <Profile setLoggedIn={setLoggedIn} loggedIn={loggedIn}/>
-        </Route> }        
+        <Route path= "/profile">
+          <Profile loggedIn={loggedIn}/>
+        </Route>       
 
       </Switch>
       </div>

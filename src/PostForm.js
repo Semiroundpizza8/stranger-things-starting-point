@@ -37,9 +37,8 @@ const PostForm =  (props) => {
 
 
 
-console.log(postObject);
         const sendPost = await createNewPost(postObject);
-        console.log("this is sendPost in PostForm", sendPost.data.post)
+        
         
         setPosts([...posts, sendPost.data.post]);
 

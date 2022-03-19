@@ -53,22 +53,22 @@ const Profile =  (props) => {
 
 
     return (
-     <>   <div>
+     <> <p> What's the problem here?</p>  <div>
 <p>Welcome to your profile {userUsername}</p>
 <p>Your ID is {userId}</p>
         </div>
         <div>
             {userPosts.map(post =>
-                <div key={post._id}>
-                    <h2>{post.title}</h2>
-                    <p>{post.description}</p>
+                <div key={post.posts._id}>
+                    <h2>{post.posts.title}</h2>
+                    <p>{post.posts.description}</p>
                 </div>
             )}
         </div>
         <div>
             {userMessages.map(message =>
                 <div key={message._id}>
-                    <h2>{message.fromUser.username}</h2>
+                    <h2>{message.fromUser}</h2>
                     <p>{message.content}</p>
                 </div>
             )}

@@ -110,13 +110,13 @@ export const updateNewPost = async (postId, newPost) => {
     return json;
 };
 
-export const deletePost = async (postId) => {
-    const url = `${baseUrl}/posts/${postId}`;
+// export const deletePost = async (postId) => {
+//     const url = `${baseUrl}/posts/${postId}`;
     
-    const response = await fetch(url, {
-        method: "DELETE"
-    });
-}
+//     const response = await fetch(url, {
+//         method: "DELETE"
+//     });
+// }
 
 export const getMe = async () => {
     // URL that we're gonna reach out to
@@ -133,7 +133,7 @@ const token = localStorage.getItem('UserToken')
         },
     });
 
-    console.log("this is the response to create a post", response)
+    console.log("this is the response to get my user profile", response)
 
     // Take the body we got back and convert it to JS Object
     const json = await response.json();
