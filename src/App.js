@@ -10,7 +10,7 @@ import PostForm from "./PostForm";
 
 
 
-const App = (props) => {
+const App = () => {
   
 
   

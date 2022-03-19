@@ -145,7 +145,7 @@ console.log(postObject);
     if (hasTriggeredError) return <p style={{ color: 'red' }}> Whoopse, looks like you need to fix something! </p>
 
     return (
-        <aside id='PostForm'>
+        <div id='PostForm'>
             {!loggedIn ? 
             <>
             <form onSubmit={handleSubmit}>
@@ -159,13 +159,11 @@ console.log(postObject);
             <input type='text' name='location' value={location} onChange={handleLocation} />
             <label htmlFor='willDeliver'> Will deliver? </label>
             <input type='checkbox' name='willDeliver' value={willDeliver} onChange={handleDeliver} />
-                {hasTriggeredError &&
-                    <p style={{ color: 'red' }}> Whoopse, looks like you need to fix something! </p>
-                }
+                
                 <button id="summit" type='submit'>Submit</button>
             </form> </> :  
             <p>Register or login to create a post!</p>}
-        </aside>
+        </div>
     )
 }
 
