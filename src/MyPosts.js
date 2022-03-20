@@ -27,8 +27,8 @@ const MyPosts = (props) => {
         setPosts(newPosts);
     }
 
-    function handleUpdatePost(id) {
-        console.log("Making a post request...");
+    async function handleUpdatePost(id) {
+        
     const dummyBody = {
       title: title,
       description:description,
@@ -37,9 +37,13 @@ const MyPosts = (props) => {
       willDeliver:willDeliver
     };
 
-    const newupdatedPost = updateNewPost(dummyBody,id);
-    
-    setPosts([...posts, newupdatedPost]);
+    const newupdatedPost = await updateNewPost(dummyBody,id);
+    console.log("updatedpost",newupdatedPost);
+
+    const newPost = newupdatedPost.data.post;
+
+    const found = posts.find(post => post._id === id);
+    setPosts([...posts, newPost, found]);
     
 }
 
