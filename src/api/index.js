@@ -24,7 +24,7 @@ export const getPosts = async () => {
 
 export const createNewPost = async (newPost) => {
 	const url = `${baseUrl}/api/2112-FTB-ET-WEB-PT/posts`;
-    const token = localStorage.getItem('stranger_things_login')
+    const token = localStorage.getItem('stranger_things_JWT')
     console.log(token);
 	const response = await fetch(url, {
 		method: 'POST',
